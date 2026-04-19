@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ScanCore.ai — As-Built Documentation for Interior Designers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   SCANCORE v4 — LIGHT EDITORIAL
+   White + Ink + Electric Blue accent
+   Playfair Display · Plus Jakarta Sans
+══════════════════════════════════════════ */
+:root {
+  --white:   #FFFFFF;
+  --off:     #F7F8FC;
+  --off2:    #EEF2FA;
+  --off3:    #E4EAF7;
+  --ink:     #0B1220;
+  --ink2:    #1C2A42;
+  --ink3:    #2E3F5E;
+  --mid:     #6B7A96;
+  --mist:    #A0ABBE;
+  --rule:    #DDE3F0;
+  --rule2:   #C8D2E8;
+  --blue:    #1455E8;
+  --blue2:   #2468FF;
+  --blue3:   #5B8EFF;
+  --blue4:   #EBF0FF;
+  --blue5:   #F2F5FF;
+  --green:   #0CAF6B;
+  --red:     #E53535;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ── PREVIEW BAR ── */
+.preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--ink);border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 20px}
+.preview-bar em{color:var(--mist);font-style:normal;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;margin-right:10px}
+.pb{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--mist);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:2px;cursor:pointer;transition:all .18s}
+.pb:hover,.pb.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.page{display:none}.page.on{display:block}
+
+/* ── BUTTONS ── */
+.btn-blue{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.03em;padding:14px 30px;border-radius:2px;cursor:pointer;border:none;transition:all .22s}
+.btn-blue:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(20,85,232,.28)}
+.btn-outline{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.03em;padding:13px 28px;border-radius:2px;cursor:pointer;border:1.5px solid var(--rule2);transition:all .22s}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.03em;padding:13px 28px;border-radius:2px;cursor:pointer;border:1.5px solid rgba(255,255,255,.35);transition:all .22s}
+.btn-outline-white:hover{border-color:#fff;transform:translateY(-2px)}
+
+/* ── UTILITIES ── */
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--blue);margin-bottom:16px}
+.eyebrow::before{content:'';width:28px;height:1.5px;background:var(--blue);flex-shrink:0}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+.nav{position:sticky;top:0;z-index:500;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule)}
+.nav-brand{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.nav-icon{width:38px;height:38px;background:var(--ink);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round}
+.nav-wordmark{display:flex;flex-direction:column;gap:1px}
+.nav-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:-.2px;line-height:1}
+.nav-name span{color:var(--blue)}
+.nav-tagline{font-size:.5rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-a{font-size:.85rem;font-weight:500;color:var(--mid);padding:8px 15px;border-radius:2px;cursor:pointer;transition:all .18s}
+.nav-a:hover,.nav-a.on{color:var(--ink);background:var(--off)}
+.nav-cta{background:var(--ink);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:10px 22px;border-radius:2px;cursor:pointer;border:none;transition:all .2s;margin-left:8px}
+.nav-cta:hover{background:var(--blue)}
+.nav-icons{display:flex;gap:5px}
+.ni{width:34px;height:34px;border:1px solid var(--rule);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;color:var(--mid)}
+.ni:hover{border-color:var(--ink);color:var(--ink)}
+.ni svg{width:14px;height:14px;fill:currentColor}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{width:22px;height:1.5px;background:var(--ink);display:block}
+
+/* ══════════════════════════
+   HERO
+══════════════════════════ */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:var(--white);overflow:hidden}
+.hero-left{position:relative;z-index:2;padding:0 80px;flex:1;max-width:680px}
+.hero-right{position:absolute;right:0;top:0;bottom:0;width:52%;overflow:hidden}
+.hero-right-img{width:100%;height:100%;object-fit:cover;filter:saturate(.75)}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.3) 40%,transparent 100%);z-index:1}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.4) 0%,transparent 30%,transparent 70%,rgba(255,255,255,.4) 100%);z-index:1}
+.hero-slide-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2s ease;filter:saturate(.6)}
+.hero-slide-img.on{opacity:1}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);border:1.5px solid var(--blue4);border-radius:2px;padding:7px 16px;background:var(--blue5);margin-bottom:32px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.2rem,6vw,5.8rem);line-height:.95;letter-spacing:-2px;color:var(--ink);margin-bottom:28px}
+.hero-h1 em{font-style:italic;color:var(--blue);font-weight:700}
+.hero-p{font-size:1.05rem;color:var(--mid);line-height:1.82;max-width:480px;margin-bottom:40px;font-weight:300}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap}
+.hchip{font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:7px 14px;border-radius:2px;background:var(--off);border:1px solid var(--rule);color:var(--ink3)}
+.hero-dots{position:absolute;left:80px;bottom:48px;z-index:3;display:flex;gap:8px}
+.hdot{width:24px;height:2px;border-radius:1px;background:var(--rule2);border:none;cursor:pointer;padding:0;transition:all .3s}
+.hdot.on{width:40px;background:var(--blue)}
+.hero-scroll{position:absolute;right:60px;bottom:44px;z-index:3;display:flex;align-items:center;gap:8px;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.hero-scroll::after{content:'';width:1px;height:36px;background:var(--rule2)}
+
+/* ══════════════════════════
+   MARQUEE
+══════════════════════════ */
+.marquee{overflow:hidden;background:var(--ink);padding:0;border-top:none}
+.marquee-track{display:flex;animation:mq 32s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mitem{display:flex;align-items:center;gap:16px;padding:16px 36px;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);white-space:nowrap}
+.mdot{width:3px;height:3px;border-radius:50%;background:var(--blue3);flex-shrink:0}
+
+/* ══════════════════════════
+   STATS
+══════════════════════════ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--off);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stat{padding:44px 40px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-1px}
+.stat-n span{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;color:var(--blue)}
+.stat-l{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-top:10px}
+
+/* ══════════════════════════
+   PROBLEM
+══════════════════════════ */
+.problem{background:var(--white);padding:120px 80px}
+.problem-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:100px;align-items:center}
+.problem-text h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:24px}
+.problem-text h2 em{font-style:italic;color:var(--blue)}
+.problem-text>p{font-size:1rem;line-height:1.85;color:var(--mid);font-weight:300;margin-bottom:32px}
+.pain-list{display:flex;flex-direction:column;gap:0;margin-bottom:36px;border-top:1px solid var(--rule)}
+.pain-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:.9rem;color:var(--ink3);font-weight:400}
+.pain-x{width:20px;height:20px;border-radius:2px;background:rgba(229,53,53,.07);border:1px solid rgba(229,53,53,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--red);font-weight:700}
+.phone-wrap{display:flex;justify-content:center;align-items:flex-start;padding-top:20px}
+.phone-scene{position:relative}
+.phone{width:230px;height:470px;border-radius:38px;border:7px solid var(--ink);overflow:hidden;box-shadow:0 40px 80px rgba(11,18,32,.18),0 0 0 1px rgba(11,18,32,.06);background:var(--off)}
+.phone img{width:100%;height:100%;object-fit:cover}
+.phone-lbl{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 18px;border-radius:2px;white-space:nowrap}
+
+/* ══════════════════════════
+   SERVICES
+══════════════════════════ */
+.services{background:var(--off);padding:120px 80px;border-top:1px solid var(--rule)}
+.services-inner{max-width:1200px;margin:0 auto}
+.sec-head{margin-bottom:72px}
+.sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;letter-spacing:-1.5px;color:var(--ink);margin-bottom:14px;line-height:1.05}
+.sec-head h2 em{font-style:italic;color:var(--blue)}
+.sec-head p{font-size:.975rem;color:var(--mid);max-width:520px;line-height:1.78;font-weight:300}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule)}
+.svc-card{background:var(--white);padding:40px 36px;transition:background .2s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue3));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{background:var(--blue5)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-n{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.svc-icon{margin-bottom:20px}
+.svc-icon svg{width:40px;height:40px;stroke:var(--ink2);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-.2px}
+.svc-card p{font-size:.86rem;line-height:1.78;color:var(--mid);font-weight:300}
+.svc-fmt{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue3);margin-top:20px;padding-top:18px;border-top:1px solid var(--rule)}
+
+/* ══════════════════════════
+   HOW
+══════════════════════════ */
+.how{background:var(--white);padding:120px 80px;border-top:1px solid var(--rule)}
+.how-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:100px;align-items:center}
+.how-text .sec-head{margin-bottom:44px}
+.how-steps{display:flex;flex-direction:column}
+.how-step{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--rule)}
+.how-step:last-child{border-bottom:none}
+.how-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--rule2);line-height:1;letter-spacing:-1px}
+.how-step h4{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:7px;letter-spacing:-.2px}
+.how-step p{font-size:.86rem;line-height:1.72;color:var(--mid);font-weight:300}
+.how-visual{position:relative;border-radius:4px;overflow:hidden}
+.how-img{position:relative;overflow:hidden}
+.how-img img{width:100%;height:480px;object-fit:cover;display:block;filter:saturate(.75)}
+.how-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,18,32,.5) 0%,transparent 55%)}
+.how-badge-top{position:absolute;top:20px;left:20px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:2px;padding:12px 18px;display:flex;align-items:center;gap:9px;box-shadow:0 4px 20px rgba(11,18,32,.1)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s infinite;flex-shrink:0}
+.how-badge-top span{font-size:.75rem;font-weight:600;color:var(--ink);letter-spacing:.04em}
+.how-badge-bot{position:absolute;bottom:20px;right:20px;background:var(--ink);border-radius:2px;padding:16px 22px;text-align:right}
+.hbb-big{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1;letter-spacing:-1px}
+.hbb-sm{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue3);margin-top:5px}
+
+/* ══════════════════════════
+   COVERAGE
+══════════════════════════ */
+.coverage{background:var(--ink);padding:120px 80px;position:relative;overflow:hidden}
+.coverage::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(90,142,255,.06) 1px,transparent 1px);background-size:48px 48px}
+.coverage-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.coverage-inner h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;letter-spacing:-1.5px;color:#fff;margin-bottom:20px;line-height:1.05}
+.coverage-inner h2 em{font-style:italic;color:var(--blue3)}
+.coverage-inner>div>p{font-size:.975rem;color:rgba(255,255,255,.55);line-height:1.82;margin-bottom:44px;font-weight:300}
+.cov-items{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.08)}
+.cov-item{display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.cov-item:last-child{border-bottom:none}
+.cov-n{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--blue3);line-height:1;letter-spacing:-1px}
+.cov-item h4{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:5px}
+.cov-item p{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
+.map-box{background:var(--ink2);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;padding:28px}
+.map-box svg{width:100%;height:auto}
+
+/* ══════════════════════════
+   TESTIMONIALS
+══════════════════════════ */
+.testi{background:var(--off);padding:120px 80px;border-bottom:1px solid var(--rule)}
+.testi-inner{max-width:1200px;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:72px}
+.tcard{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:40px 34px;transition:all .22s;position:relative;overflow:hidden}
+.tcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue3));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.tcard:hover{box-shadow:0 16px 48px rgba(11,18,32,.09);transform:translateY(-4px)}
+.tcard:hover::after{transform:scaleX(1)}
+.tcard-stars{display:flex;gap:3px;margin-bottom:22px}
+.star{width:12px;height:12px;background:var(--blue);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.tcard blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--ink2);line-height:1.72;margin-bottom:28px;font-weight:400}
+.tcard-author{display:flex;align-items:center;gap:12px;padding-top:22px;border-top:1px solid var(--rule)}
+.tcard-av{width:40px;height:40px;border-radius:2px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;color:#fff;flex-shrink:0}
+.tcard-name{font-size:.88rem;font-weight:700;color:var(--ink)}
+.tcard-co{font-size:.75rem;color:var(--mist);margin-top:2px}
+
+/* ══════════════════════════
+   ABOUT TEASER
+══════════════════════════ */
+.about-t{background:var(--white);padding:120px 80px;border-top:1px solid var(--rule)}
+.about-t-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.at-img-wrap{position:relative}
+.at-img{width:100%;height:540px;object-fit:cover;border-radius:4px;filter:saturate(.75)}
+.at-pull{position:absolute;bottom:-1px;left:-28px;right:28px;background:var(--ink);padding:26px 28px}
+.at-pull blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:.98rem;color:rgba(255,255,255,.82);line-height:1.68;margin-bottom:10px}
+.at-pull cite{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue3);font-style:normal}
+.at-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;letter-spacing:-1.5px;color:var(--ink);margin-bottom:20px;line-height:1.05}
+.at-text h2 em{font-style:italic;color:var(--blue)}
+.at-text>p{font-size:.955rem;line-height:1.85;color:var(--mid);margin-bottom:18px;font-weight:300}
+.checks{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;border-top:1px solid var(--rule);padding-top:20px}
+.check-row{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--ink3)}
+.check-box{width:18px;height:18px;border-radius:2px;background:rgba(12,175,107,.1);border:1.5px solid rgba(12,175,107,.4);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.62rem;color:var(--green);font-weight:700}
+
+/* ══════════════════════════
+   CONTACT STRIP
+══════════════════════════ */
+.cstrip{display:flex;border-top:1px solid var(--rule)}
+.cs{flex:1;display:flex;align-items:center;gap:16px;padding:28px 44px;background:var(--white);border-right:1px solid var(--rule);transition:background .18s;cursor:pointer}
+.cs:last-child{border-right:none}
+.cs:hover{background:var(--off)}
+.cs-ico{width:44px;height:44px;border:1.5px solid var(--rule);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cs-ico svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cs-lbl{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.cs-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-top:3px;letter-spacing:-.2px}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer{background:var(--ink);padding:72px 80px 100px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:52px}
+.f-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.f-logo span{color:var(--blue3)}
+.f-brand p{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.72;font-weight:300;margin-bottom:20px}
+.f-social{display:flex;gap:7px}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,.1);border-radius:2px;display:flex;align-items:center;justify-content:center;transition:all .18s;cursor:pointer}
+.fsoc:hover{border-color:var(--blue3);background:rgba(20,85,232,.2)}
+.fsoc svg{width:13px;height:13px;fill:rgba(255,255,255,.45)}
+.f-col h5{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px}
+.f-col a,.f-col p{display:block;font-size:.84rem;color:rgba(255,255,255,.45);margin-bottom:9px;transition:color .18s;cursor:pointer;line-height:1.4;font-weight:300}
+.f-col a:hover{color:#fff}
+.f-bottom{max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.25);font-weight:300}
+
+/* ══════════════════════════
+   SERVICES PAGE
+══════════════════════════ */
+.page-hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;overflow:hidden}
+.ph-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.6)}
+.ph-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,18,32,.9) 0%,rgba(11,18,32,.45) 60%,rgba(11,18,32,.2) 100%)}
+.phc{position:relative;z-index:2;padding:0 80px 72px;max-width:960px}
+.phc h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,5rem);font-weight:700;letter-spacing:-2px;color:#fff;margin-bottom:18px;line-height:.95}
+.phc h1 em{font-style:italic;color:var(--blue3)}
+.phc p{font-size:.975rem;color:rgba(255,255,255,.6);line-height:1.75;max-width:580px;margin-bottom:28px;font-weight:300}
+.svc-pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule)}
+.svc-pg-card{background:var(--white);padding:38px 30px;transition:background .2s}
+.svc-pg-card:hover{background:var(--blue5)}
+.svc-pg-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.svc-pg-card p{font-size:.86rem;line-height:1.78;color:var(--mid);font-weight:300}
+.svc-pg-card .fmt{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+
+.delivs-sec{background:var(--off);padding:80px 80px;border-top:1px solid var(--rule)}
+.deliv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);margin-top:56px}
+.dcard{background:var(--off);padding:32px 24px;text-align:center;transition:background .2s}
+.dcard:hover{background:var(--white)}
+.dcard-icon{width:48px;height:48px;margin:0 auto 16px;border:1.5px solid var(--rule);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.dcard-icon svg{width:22px;height:22px;stroke:var(--ink2);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.dcard h3{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.dcard p{font-size:.78rem;color:var(--mid);line-height:1.6;font-weight:300}
+.dcard-fmt{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:12px}
+
+.scan-tech{background:var(--white);padding:100px 80px;border-top:1px solid var(--rule)}
+.st-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+.st-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.5vw,2.2rem);font-weight:700;letter-spacing:-1px;color:var(--ink);margin-bottom:28px;line-height:1.1}
+.st-left img{width:100%;border-radius:4px;margin-top:28px;filter:saturate(.7)}
+.feat-list{display:flex;flex-direction:column}
+.feat{padding:22px 0;border-bottom:1px solid var(--rule)}
+.feat:last-child{border-bottom:none}
+.feat h4{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.feat p{font-size:.86rem;line-height:1.72;color:var(--mid);font-weight:300}
+
+.cta-band{padding:100px 80px;background:var(--ink);position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(90,142,255,.05) 1px,transparent 1px);background-size:44px 44px}
+.cta-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;text-align:center}
+.cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;letter-spacing:-1.5px;color:#fff;margin-bottom:18px;line-height:1.05}
+.cta-inner h2 em{font-style:italic;color:var(--blue3)}
+.cta-inner p{font-size:.975rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:32px;font-weight:300}
+
+/* ══════════════════════════
+   ABOUT PAGE
+══════════════════════════ */
+.about-split{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.about-col-img{position:relative;overflow:hidden;min-height:80vh}
+.about-col-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.65)}
+.about-col-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(11,18,32,.7),rgba(11,18,32,.15))}
+.about-txt{position:absolute;bottom:64px;left:64px;z-index:3;max-width:560px}
+.about-txt h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.4rem);font-weight:700;letter-spacing:-2px;color:#fff;line-height:.95;margin-bottom:16px}
+.about-txt h1 em{font-style:italic;color:var(--blue3)}
+.about-col-stat{background:var(--off);display:flex;flex-direction:column;justify-content:flex-end;padding:64px;min-height:80vh}
+.about-big{font-family:'Playfair Display',serif;font-size:6rem;font-weight:700;color:var(--ink);letter-spacing:-4px;line-height:1;margin-bottom:12px}
+.about-big span{color:var(--blue)}
+.about-col-stat>p{font-size:1rem;color:var(--mid);line-height:1.82;font-weight:300;max-width:380px;margin-bottom:28px}
+
+.about-story{background:var(--white);padding:120px 80px;border-top:1px solid var(--rule)}
+.as-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:90px;align-items:start}
+.as-img{width:100%;border-radius:4px;filter:saturate(.65);position:sticky;top:100px}
+.as-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.8rem);font-weight:700;letter-spacing:-1px;color:var(--ink);margin-bottom:28px;line-height:1.05}
+.as-text p{font-size:.955rem;line-height:1.87;color:var(--mid);margin-bottom:16px;font-weight:300}
+.as-pull{margin:28px 0;padding:24px 28px;background:var(--off);border-left:3px solid var(--blue)}
+.as-pull blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--ink2);line-height:1.65;margin-bottom:8px}
+.as-pull cite{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-style:normal}
+
+.vals-sec{background:var(--off);padding:80px 80px;border-top:1px solid var(--rule)}
+.vals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);margin-top:56px}
+.val-card{background:var(--off);padding:40px 32px;border-top:3px solid var(--blue)}
+.val-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-.2px}
+.val-card p{font-size:.875rem;line-height:1.75;color:var(--mid);font-weight:300}
+.val-n{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+
+/* ══════════════════════════
+   CONTACT PAGE
+══════════════════════════ */
+.cinfo{background:var(--off);padding:80px 80px;border-top:1px solid var(--rule)}
+.cinfo-inner{max-width:1200px;margin:0 auto}
+.cinfo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);margin-top:56px}
+.cicard{background:var(--white);padding:32px 26px;transition:background .2s}
+.cicard:hover{background:var(--blue5)}
+.cicard-ico svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px}
+.cicard h3{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
+.cicard a,.cicard p{font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.4}
+.cicard .sub{font-size:.75rem;color:var(--mist);margin-top:5px;font-weight:300}
+
+.cform-sec{background:var(--white);padding:80px 80px;border-top:1px solid var(--rule)}
+.cform-inner{max-width:740px;margin:0 auto}
+.cform-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-1px;color:var(--ink);margin-bottom:8px}
+.cform-sub{color:var(--mist);font-size:.9rem;margin-bottom:44px;font-weight:300}
+.cf{display:flex;flex-direction:column;gap:18px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg label{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mid)}
+.fg input,.fg textarea,.fg select{padding:12px 16px;border:1.5px solid var(--rule);border-radius:2px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;background:var(--white);color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--blue)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--mist)}
+.fg textarea{resize:vertical;min-height:120px}
+.chklbl{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;color:var(--mid);line-height:1.55;cursor:pointer;font-weight:300}
+.chklbl input{margin-top:3px;flex-shrink:0;accent-color:var(--blue)}
+.cf-submit{background:var(--ink);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 40px;border:none;border-radius:2px;cursor:pointer;width:100%;transition:all .2s;margin-top:6px}
+.cf-submit:hover{background:var(--blue)}
+.cf-success{display:none;background:rgba(12,175,107,.06);border:1.5px solid rgba(12,175,107,.3);border-radius:2px;padding:28px;text-align:center;font-size:1rem;font-weight:600;color:var(--green);margin-top:16px}
+
+/* ══════════════════════════
+   QUOTE PAGE
+══════════════════════════ */
+.qhero{background:var(--off);padding:80px 80px 60px;border-bottom:1px solid var(--rule);text-align:center}
+.qhero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;letter-spacing:-2px;color:var(--ink);margin-bottom:14px;line-height:.95}
+.qhero h1 em{font-style:italic;color:var(--blue)}
+.qhero p{font-size:.975rem;color:var(--mid);max-width:520px;margin:0 auto 28px;line-height:1.68;font-weight:300}
+.qbadges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.qb{background:var(--white);border:1.5px solid var(--rule);border-radius:2px;padding:6px 16px;color:var(--ink3);font-size:.75rem;font-weight:600;letter-spacing:.04em}
+
+.qwrap{background:var(--white);padding:40px 80px 60px;min-height:60vh}
+.qbody{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+
+/* ── SQFT BAR — 3 boxes ── */
+.sqft-bar{
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr;
+  gap:12px;
+  max-width:1140px;
+  margin:0 auto 20px;
+  align-items:stretch;
+}
+.sqft-box{
+  border-radius:10px;
+  padding:20px 24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+/* Left box — label */
+.sqft-box-label{
+  background:#EBF4FF;
+  border:1.5px solid #BFDBFE;
+}
+.sqft-box-label .sqft-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:5px;
+}
+.sqft-box-label .sqft-title svg{
+  width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;
+}
+.sqft-box-label p{
+  font-size:.8rem;
+  color:var(--mid);
+  font-weight:400;
+  line-height:1.4;
+}
+/* Middle box — input */
+.sqft-box-input{
+  background:var(--white);
+  border:2px solid var(--blue);
+  box-shadow:0 4px 16px rgba(20,85,232,.1);
+  padding:14px 20px;
+  flex-direction:row;
+  align-items:center;
+  gap:0;
+}
+#sqFootage{
+  border:none;
+  outline:none;
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--ink);
+  text-align:center;
+  width:100%;
+  background:transparent;
+  letter-spacing:-1px;
+  line-height:1;
+  -moz-appearance:textfield;
+}
+#sqFootage::-webkit-outer-spin-button,
+#sqFootage::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#sqFootage::placeholder{color:#C8D2E8;font-weight:400}
+.sqft-unit{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.82rem;
+  font-weight:800;
+  color:var(--mid);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  border-left:1.5px solid var(--rule);
+  padding-left:14px;
+  flex-shrink:0;
+}
+/* Right box — hint */
+.sqft-box-hint{
+  background:#F0FDF6;
+  border:1.5px solid #A7F3D0;
+}
+.sqft-box-hint .sqft-hint-icon{
+  font-size:.82rem;
+  font-weight:700;
+  color:#059669;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.sqft-box-hint .sqft-hint-icon::before{
+  content:'';
+  width:8px;height:8px;border-radius:50%;
+  background:#059669;
+  flex-shrink:0;
+}
+.sqft-box-hint p{
+  font-size:.78rem;
+  color:#065F46;
+  font-weight:400;
+  font-style:italic;
+  line-height:1.45;
+}
+.sqft-hint{background:rgba(229,53,53,.05);border-left:3px solid var(--red);padding:9px 14px;font-size:.78rem;color:var(--red);margin-top:0;display:none;border-radius:0;font-weight:500;max-width:1140px;margin-left:auto;margin-right:auto}
+
+.q-sec{background:var(--off);border:1.5px solid var(--rule);border-radius:2px;padding:26px;margin-bottom:16px}
+.q-sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.q-sec-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.q-sec-head span{font-size:.78rem;color:var(--mist);font-weight:300}
+.qsvc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qsvc{border:1.5px solid var(--rule);border-radius:2px;padding:16px;cursor:pointer;transition:all .18s;background:var(--white)}
+.qsvc:hover{border-color:var(--rule2)}
+.qsvc.sel{border-color:var(--blue);background:var(--blue5)}
+.qsvc.disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+.qsvc-chk{width:18px;height:18px;border:1.5px solid var(--rule2);border-radius:2px;display:flex;align-items:center;justify-content:center;float:right;font-size:.68rem;margin-left:6px;transition:all .18s;color:transparent}
+.qsvc.sel .qsvc-chk{background:var(--blue);border-color:var(--blue);color:#fff}
+.qsvc-name{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;padding-right:26px}
+.qsvc-desc{font-size:.75rem;color:var(--mist);line-height:1.5;margin-bottom:7px;font-weight:300}
+.qsvc-price{font-size:.82rem;font-weight:700;color:var(--blue)}
+.q-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:3px 9px;margin-top:5px;letter-spacing:.06em;border-radius:2px}
+.q-badge.popular{background:var(--blue4);color:var(--blue);border:1px solid var(--off3)}
+.q-badge.bundle{background:rgba(12,175,107,.08);color:var(--green);border:1px solid rgba(12,175,107,.25)}
+.bundle-toast{background:rgba(12,175,107,.07);border:1.5px solid rgba(12,175,107,.25);border-radius:2px;padding:12px 16px;margin-bottom:14px;display:none;align-items:center;justify-content:space-between;gap:10px;font-size:.82rem;color:var(--green);font-weight:600}
+.bundle-toast.show{display:flex}
+.bundle-toast button{font-size:.7rem;color:var(--mist);background:none;border:none;cursor:pointer;text-decoration:underline}
+
+.qprop-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qfield{display:flex;flex-direction:column;gap:5px}
+.qfield label{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mid)}
+.qfield input,.qfield textarea,.qfield select{padding:10px 13px;border:1.5px solid var(--rule);border-radius:2px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;background:var(--white);color:var(--ink)}
+.qfield input:focus,.qfield textarea:focus,.qfield select:focus{border-color:var(--blue)}
+.qfield input::placeholder{color:var(--mist)}
+.qfield textarea{resize:vertical;min-height:86px}
+.qfield.full{grid-column:1/-1}
+.qerr{font-size:.7rem;color:var(--red);display:none;margin-top:2px}
+.qerr.show{display:block}
+
+.qsbar{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.qbox{background:var(--off);border:1.5px solid var(--rule);border-radius:2px;padding:20px}
+.qbox h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-.2px}
+.qbox .empty-txt{font-size:.82rem;color:var(--mist);text-align:center;padding:10px 0;font-weight:300}
+.line-item{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule)}
+.line-item:last-child{border-bottom:none}
+.li-lbl{font-size:.8rem;color:var(--mid);font-weight:400}
+.li-val{font-size:.85rem;font-weight:700;color:var(--ink)}
+.q-total-box{background:#F0FDF6;border:1.5px solid #A7F3D0;border-radius:2px;padding:18px;display:none;margin-top:8px}
+.q-total-lbl{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#059669}
+.q-total-val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#065F46;letter-spacing:-1.5px;margin-top:4px;line-height:1}
+.delivery-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:.8rem;color:var(--mid)}
+.delivery-row:last-child{border-bottom:none}
+.delivery-row.hi{color:var(--ink);font-weight:700}
+.q-submit-btn{background:var(--ink);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;padding:14px;border:none;border-radius:2px;cursor:pointer;width:100%;transition:all .2s;margin-top:2px}
+.q-submit-btn:hover{background:var(--blue)}
+.q-trust{display:flex;flex-direction:column;gap:7px}
+.qt-item{display:flex;align-items:center;gap:9px;font-size:.75rem;color:var(--mist);font-weight:300}
+.qt-tick{width:14px;height:14px;border:1.5px solid rgba(12,175,107,.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--green);font-weight:700}
+#qSuccess{display:none;text-align:center;padding:52px 24px;background:var(--off);border:1.5px solid var(--rule);border-radius:2px;margin-top:24px;max-width:1140px;margin-left:auto;margin-right:auto}
+#qSuccess h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ink);letter-spacing:-1.5px;margin-bottom:12px}
+#qSuccess p{color:var(--mid);font-size:.9rem;line-height:1.75;font-weight:300}
+#qRef{margin-top:16px;font-size:.88rem;font-weight:700;color:var(--blue);letter-spacing:.06em}
+
+/* ══════════════════════
+   RESPONSIVE
+══════════════════════ */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav-icons{display:none}
+  .hero-left{padding:0 28px}
+  .hero-right{display:none}
+  .hero-dots,.hero-scroll{display:none}
+  .problem,.services,.how,.coverage,.testi,.about-t{padding:64px 24px}
+  .problem-inner,.how-inner,.coverage-inner,.about-t-inner,.as-inner,.st-inner{grid-template-columns:1fr;gap:48px}
+  .phone-wrap{display:none}
+  .svc-grid,.testi-grid,.vals-grid,.svc-pg-grid,.deliv-grid,.cinfo-cards{grid-template-columns:1fr;gap:2px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cstrip{flex-direction:column}
+  .cs{border-right:none;border-bottom:1px solid var(--rule)}
+  footer{padding:48px 24px 100px}
+  .footer-inner{grid-template-columns:1fr;gap:28px}
+  .phc{padding:0 24px 52px}
+  .svc-pg-sec,.delivs-sec,.scan-tech,.cta-band,.cinfo,.cform-sec{padding:56px 24px}
+  .about-split{grid-template-columns:1fr;min-height:auto}
+  .about-col-img{min-height:65vh}
+  .about-col-stat{min-height:auto;padding:40px 24px}
+  .about-txt{left:24px;bottom:32px}
+  .about-story,.vals-sec{padding:64px 24px}
+  .qhero,.qwrap{padding:48px 20px}
+  .qbody{grid-template-columns:1fr}
+  .qsvc-grid,.qprop-grid{grid-template-columns:1fr}
+  .qsbar{position:static}
+  .cf-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-brand" onclick="go('home')">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/></svg>
+    </div>
+    <div class="nav-wordmark">
+      <div class="nav-name">Scan<span>Core</span></div>
+      <div class="nav-tagline">Reality Captured · Design Unleashed</div>
+    </div>
+  </div>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navMenu">
+    <li><span class="nav-a on" id="nl-home" onclick="go('home')">Home</span></li>
+    <li><span class="nav-a" id="nl-wwd" onclick="go('wwd')">Services</span></li>
+    <li><span class="nav-a" id="nl-about" onclick="go('about')">About</span></li>
+    <li><span class="nav-a" id="nl-contact" onclick="go('contact')">Contact</span></li>
+    <li><button class="nav-cta" onclick="go('quote')">Get a Quote</button></li>
+  </ul>
+  <div class="nav-icons">
+    <a href="https://www.instagram.com/scancore.ai" target="_blank" class="ni"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="mailto:info@scancore.ai" class="ni"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="tel:+18338652726" class="ni"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+  </div>
+</nav>
+
+<!-- ════════ HOME ════════ -->
+<div id="p-home" class="page on">
+
+  <section class="hero">
+    <div class="hero-right">
+      <div class="hero-slide-img on" style="background-image:url('https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/scanningipad-1920w.jpg')"></div>
+      <div class="hero-slide-img" style="background-image:url('https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png')"></div>
+      <div class="hero-slide-img" style="background-image:url('https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg')"></div>
+    </div>
+    <div class="hero-left">
+      <div class="hero-badge"><div class="hero-badge-dot"></div>LiDAR · All 50 States · Rush Delivery Available</div>
+      <h1 class="hero-h1">As-Built<br>Docs for<br><em>Interior<br>Designers</em></h1>
+      <p class="hero-p">We scan real spaces with LiDAR and deliver precise, designer-ready documentation — AutoCAD floor plans, SketchUp models, Matterport tours, and reflected ceiling plans — in days, not weeks.</p>
+      <div class="hero-actions">
+        <button class="btn-blue" onclick="go('quote')">Get Instant Quote →</button>
+        <button class="btn-outline" onclick="go('wwd')">Explore Services</button>
+      </div>
+      <div class="hero-chips">
+        <span class="hchip">AutoCAD DWG</span>
+        <span class="hchip">SketchUp SKP</span>
+        <span class="hchip">Matterport 3D</span>
+        <span class="hchip">Ceiling Plans</span>
+        <span class="hchip">Design Bundle</span>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <button class="hdot on" data-i="0"></button>
+      <button class="hdot" data-i="1"></button>
+      <button class="hdot" data-i="2"></button>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="mitem">Precision LiDAR Scanning</span><span class="mdot"></span><span class="mitem">Laser-Accurate Measurements</span><span class="mdot"></span><span class="mitem">AutoCAD DWG Floor Plans</span><span class="mdot"></span><span class="mitem">SketchUp 3D Models</span><span class="mdot"></span><span class="mitem">Design Package Bundle</span><span class="mdot"></span><span class="mitem">Matterport 3D Tours</span><span class="mdot"></span><span class="mitem">Reflected Ceiling Plans</span><span class="mdot"></span><span class="mitem">Fast Turnaround Available</span><span class="mdot"></span><span class="mitem">Standard 5-Day Delivery</span><span class="mdot"></span><span class="mitem">All 50 States</span><span class="mdot"></span><span class="mitem">Founded by Designers</span><span class="mdot"></span>
+      <span class="mitem">Precision LiDAR Scanning</span><span class="mdot"></span><span class="mitem">Laser-Accurate Measurements</span><span class="mdot"></span><span class="mitem">AutoCAD DWG Floor Plans</span><span class="mdot"></span><span class="mitem">SketchUp 3D Models</span><span class="mdot"></span><span class="mitem">Design Package Bundle</span><span class="mdot"></span><span class="mitem">Matterport 3D Tours</span><span class="mdot"></span><span class="mitem">Reflected Ceiling Plans</span><span class="mdot"></span><span class="mitem">Fast Turnaround Available</span><span class="mdot"></span><span class="mitem">Standard 5-Day Delivery</span><span class="mdot"></span><span class="mitem">All 50 States</span><span class="mdot"></span><span class="mitem">Founded by Designers</span><span class="mdot"></span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">50<span>★</span></div><div class="stat-l">States Covered</div></div>
+    <div class="stat"><div class="stat-n">5<span>★</span></div><div class="stat-l">Client Satisfaction</div></div>
+    <div class="stat"><div class="stat-n">5<span>+</span></div><div class="stat-l">Day Standard Delivery</div></div>
+    <div class="stat"><div class="stat-n">25<span>+</span></div><div class="stat-l">Years Design Experience</div></div>
+  </div>
+
+  <section class="problem">
+    <div class="problem-inner">
+      <div class="problem-text">
+        <div class="eyebrow">The Problem</div>
+        <h2>Guessing measurements is <em>costing you</em></h2>
+        <p>Inaccurate as-builts cascade into change orders, rework, and client trust issues. Without reliable documentation, every project carries hidden risk you can't price for.</p>
+        <div class="pain-list">
+          <div class="pain-row"><div class="pain-x">✕</div>Costly change orders from wrong dimensions</div>
+          <div class="pain-row"><div class="pain-x">✕</div>Multiple site revisits to verify measurements</div>
+          <div class="pain-row"><div class="pain-x">✕</div>Custom millwork that doesn't fit on delivery</div>
+          <div class="pain-row"><div class="pain-x">✕</div>Awkward client conversations about redesigns</div>
+          <div class="pain-row"><div class="pain-x">✕</div>Time lost waiting on unreliable surveyors</div>
+        </div>
+        <button class="btn-blue" onclick="go('wwd')">See How We Solve It →</button>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone-scene">
+          <div class="phone"><img src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/scanningipad-1920w.jpg" alt="LiDAR scanning"/></div>
+          <div class="phone-lbl">Live LiDAR Capture</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="services-inner">
+      <div class="sec-head">
+        <div class="eyebrow">What We Deliver</div>
+        <h2>One scan. Every format<br>you <em>need.</em></h2>
+        <p>All deliverables from a single site visit — no juggling multiple vendors, no repeat appointments, no extra cost to your client.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card"><div class="svc-n">01</div><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><h3>CAD Floor Plans</h3><p>Layered DWG/DXF with all fixtures, doors, windows, plumbing, and ceiling heights. Precise spatial data for confident space planning and FF&E placement.</p><div class="svc-fmt">DWG · DXF · PDF</div></div>
+        <div class="svc-card"><div class="svc-n">02</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>SketchUp 3D Models</h3><p>Design-ready SKP models built from LiDAR data. Measurement-accurate, fully editable, clean geometry that slots directly into your workflow — no cleanup required.</p><div class="svc-fmt">SKP · Clean Geometry</div></div>
+        <div class="svc-card"><div class="svc-n">03</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v18h18V3zm-9 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/></svg></div><h3>Reflected Ceiling Plans</h3><p>Precise RCPs with beam positions, fixture locations, ceiling heights, and structural conditions. LiDAR-captured — no ladders, no guesswork, no revisits.</p><div class="svc-fmt">DWG · Layered</div></div>
+        <div class="svc-card"><div class="svc-n">04</div><div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg></div><h3>Matterport Virtual Tours</h3><p>Immersive 3D tours — dollhouse views, 360° walkthroughs, built-in measurement tools. Reduces miscommunication and minimizes revisits. 6-month hosting included.</p><div class="svc-fmt">3D Tour · 6-Month Hosting</div></div>
+        <div class="svc-card"><div class="svc-n">05</div><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3>Design Package Bundle</h3><p>AutoCAD Floor Plan + SketchUp 3D Model + Matterport Tour — all three services in one package at a better combined rate. The most complete documentation package, built for designers who want everything.</p><div class="svc-fmt">AutoCAD · SketchUp · Matterport</div></div>
+        <div class="svc-card"><div class="svc-n">06</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v18h18V3zm-9 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/></svg></div><h3>Reflected Ceiling Plan</h3><p>Detailed RCP showing every fixture location, beam, soffit, HVAC register, and ceiling height — captured by LiDAR with no ladders, no guesswork, and no return visits needed.</p><div class="svc-fmt">DWG · Layered · LiDAR-Captured</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-inner">
+      <div class="how-text">
+        <div class="sec-head">
+          <div class="eyebrow">Our Process</div>
+          <h2>Three steps to <em>precise</em> documentation</h2>
+          <p>From booking to delivery — designed to put zero burden on you.</p>
+        </div>
+        <div class="how-steps">
+          <div class="how-step"><div class="how-num">01</div><div><h4>Book Your Scan</h4><p>Instant quote online, pick your deliverables, schedule your scan. A certified technician comes to you — anywhere across all 50 states.</p></div></div>
+          <div class="how-step"><div class="how-num">02</div><div><h4>We Capture Everything</h4><p>LiDAR maps every wall, ceiling, floor, fixture, and opening with millimeter precision. Most residential scans complete in 1–4 hours on-site.</p></div></div>
+          <div class="how-step"><div class="how-num">03</div><div><h4>Receive Your Files</h4><p>Files are typically delivered within 5 business days. Rush delivery is available at an additional fee. Clean, layered, organized — open and start designing immediately.</p></div></div>
+        </div>
+      </div>
+      <div class="how-visual">
+        <div class="how-img">
+          <img src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png" alt="ScanCore deliverables"/>
+        </div>
+        <div class="how-badge-top"><div class="live-dot"></div><span>Scan in progress</span></div>
+        <div class="how-badge-bot"><div class="hbb-big">5-Day</div><div class="hbb-sm">Standard delivery</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coverage">
+    <div class="coverage-inner">
+      <div>
+        <div class="eyebrow" style="color:var(--blue3)">Coverage</div>
+        <h2>Nationwide.<br><em>Consistent.</em> Fast.</h2>
+        <p>A certified network of LiDAR technicians covers all 50 states, delivering the same precision and turnaround whether your project is in Manhattan or Montana.</p>
+        <div class="cov-items">
+          <div class="cov-item"><div class="cov-n">50</div><div><h4>States Covered</h4><p>Coast to coast. Same quality standards, same training, same deliverables — everywhere.</p></div></div>
+          <div class="cov-item"><div class="cov-n">48h</div><div><h4>Standard Delivery</h4><p>Standard delivery in 5 business days. Rush delivery is available at a 25% premium for time-sensitive projects.</p></div></div>
+          <div class="cov-item"><div class="cov-n">1×</div><div><h4>One Site Visit</h4><p>AutoCAD, SketchUp, Matterport, RCP — all from one scan. One vendor, one invoice, no juggling.</p></div></div>
+        </div>
+      </div>
+      <div class="map-box">
+        <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60,108 L100,80 L160,70 L220,65 L280,62 L340,60 L400,62 L460,66 L510,74 L548,88 L565,108 L572,136 L574,164 L568,192 L554,220 L534,246 L512,264 L488,276 L462,284 L434,292 L408,304 L384,316 L360,328 L332,336 L302,330 L272,322 L244,312 L220,302 L196,292 L168,280 L140,264 L114,246 L92,224 L74,200 L62,174 L60,148 Z" fill="rgba(20,85,232,0.06)" stroke="rgba(91,142,255,0.2)" stroke-width="1.5"/>
+          <circle cx="300" cy="180" r="4" fill="#1455E8" opacity=".9"/>
+          <circle cx="300" cy="180" r="14" fill="none" stroke="#1455E8" stroke-width="1" opacity=".3"><animate attributeName="r" values="5;22;5" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="154" cy="144" r="3.5" fill="#5B8EFF" opacity=".8"/>
+          <circle cx="468" cy="162" r="3.5" fill="#5B8EFF" opacity=".8"/>
+          <circle cx="400" cy="256" r="3.5" fill="#5B8EFF" opacity=".8"/>
+          <circle cx="220" cy="254" r="3.5" fill="#5B8EFF" opacity=".8"/>
+          <circle cx="118" cy="200" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="362" cy="112" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="522" cy="128" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="274" cy="298" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="446" cy="210" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="178" cy="212" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <circle cx="316" cy="318" r="2.5" fill="#8CB4FF" opacity=".6"/>
+          <text x="300" y="368" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9.5" font-weight="700" fill="rgba(91,142,255,0.35)" letter-spacing="3">ALL 50 STATES COVERED</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="testi">
+    <div class="testi-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Client Results</div>
+        <h2>What designers<br>say about <em>us</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="tcard"><div class="tcard-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div><blockquote>"The CAD plans came back in 36 hours and were more accurate than anything I've gotten from a traditional surveyor. We avoided two change orders on one kitchen reno alone."</blockquote><div class="tcard-author"><div class="tcard-av">SM</div><div><div class="tcard-name">Sarah M.</div><div class="tcard-co">SM Interiors — Chicago, IL</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div><blockquote>"I used to dread the as-built phase. Now I just book ScanCore and have everything the next day. The SketchUp model is ready to design in immediately — it's transformed my workflow."</blockquote><div class="tcard-author"><div class="tcard-av">JL</div><div><div class="tcard-name">Jessica L.</div><div class="tcard-co">Independent Designer — Los Angeles, CA</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div><blockquote>"The Matterport tour changed how I present remotely. Walking clients through the actual space before touching a wall — they love it, and it's closed proposals I might have otherwise lost."</blockquote><div class="tcard-author"><div class="tcard-av">RT</div><div><div class="tcard-name">Rachel T.</div><div class="tcard-co">RT Design Studio — New York, NY</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-t">
+    <div class="about-t-inner">
+      <div class="at-img-wrap">
+        <img class="at-img" src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg" alt="ScanCore scanning"/>
+        <div class="at-pull">
+          <blockquote>"I got tired of watching designers suffer through unreliable measurements — so I built a better solution."</blockquote>
+          <cite>— Cortney Austin, Founder · 25 Years Interior Design</cite>
+        </div>
+      </div>
+      <div class="at-text">
+        <div class="eyebrow">Our Story</div>
+        <h2>Built by a <em>designer,</em><br>for designers</h2>
+        <p>ScanCore was founded by Cortney Austin — a veteran interior designer with 25 years of experience who got tired of unreliable measurements and built a better solution.</p>
+        <p>We speak your language because we've lived your frustrations. Our deliverables are made for your workflow, not handed off as raw data.</p>
+        <div class="checks">
+          <div class="check-row"><div class="check-box">✓</div>Founded by a working interior designer</div>
+          <div class="check-row"><div class="check-box">✓</div>Files delivered ready to design with</div>
+          <div class="check-row"><div class="check-box">✓</div>We understand your design software workflows</div>
+          <div class="check-row"><div class="check-box">✓</div>White-glove support from people who get it</div>
+        </div>
+        <button class="btn-outline" onclick="go('about')">Our Full Story →</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cstrip">
+    <a href="tel:+18338652726" class="cs"><div class="cs-ico"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><div class="cs-lbl">Toll Free</div><div class="cs-val">1.833.865.SCAN</div></div></a>
+    <a href="mailto:info@scancore.ai" class="cs"><div class="cs-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cs-lbl">Email</div><div class="cs-val">info@scancore.ai</div></div></a>
+    <a href="https://www.instagram.com/scancore.ai" target="_blank" class="cs"><div class="cs-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="cs-lbl">Instagram</div><div class="cs-val">@scancore.ai</div></div></a>
+  </div>
+  <div id="home-footer"></div>
+</div>
+
+<!-- ════════ SERVICES ════════ -->
+<div id="p-wwd" class="page">
+  <section class="page-hero">
+    <div class="ph-bg" style="background-image:url('https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png')"></div>
+    <div class="ph-grad"></div>
+    <div class="phc">
+      <div class="eyebrow" style="color:var(--blue3);margin-bottom:24px">Services</div>
+      <h1>Precision for <em>interior design</em> excellence</h1>
+      <p>LiDAR documentation in every format your workflow demands — delivered fast, organized exactly as you need it.</p>
+      <button class="btn-blue" onclick="go('quote')">Get an Instant Quote →</button>
+    </div>
+  </section>
+  <section style="background:var(--white);padding:80px 80px;border-top:1px solid var(--rule)" class="svc-pg-sec">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="sec-head" style="margin-bottom:56px"><div class="eyebrow">All Services</div><h2>Comprehensive scanning<br>& documentation</h2><p>One scan, all outputs — choose any combination.</p></div>
+      <div class="svc-pg-grid">
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">01</div><h3>SketchUp 3D Model</h3><p>Design-ready SKP models built from hyper-accurate LiDAR data. Measurement-accurate, fully editable clean geometry that integrates seamlessly into SketchUp Pro workflows. Saves hours of manual modeling per project.</p><div class="fmt">SKP · Clean Geometry · Fully Editable</div></div>
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">02</div><h3>CAD Floor Plan</h3><p>Accurate layered DWG/DXF floor plans extracted from LiDAR. Includes plumbing, appliances, lighting fixtures, windows, doors, and ceiling heights. Precise spatial data for confident space planning and FF&E placement.</p><div class="fmt">DWG · DXF · PDF</div></div>
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">03</div><h3>Reflected Ceiling Plan</h3><p>Detailed RCPs with exact beam locations, fixture positions, ceiling heights, and structural elements captured by LiDAR. Essential for lighting layouts and ceiling treatments — no ladders, no guesswork, no revisits.</p><div class="fmt">DWG · Layered</div></div>
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">04</div><h3>Matterport Virtual Tour</h3><p>Fully immersive 3D tours with dollhouse views and 360° walkthroughs — clients explore the space remotely before a single wall is touched. Built-in measurement tools and 6-month cloud hosting included.</p><div class="fmt">3D Tour · 6-Month Hosting</div></div>
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">05</div><h3>Design Package Bundle</h3><p>AutoCAD DWG Floor Plan + SketchUp SKP 3D Model + Matterport 3D Tour — all three bundled into one package at a better combined rate than purchasing separately. The most complete documentation package available, ideal for full residential projects.</p><div class="fmt">AutoCAD · SketchUp · Matterport Included</div></div>
+        <div class="svc-pg-card"><div class="svc-n" style="font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">06</div><h3>RCP — Reflected Ceiling Plan</h3><p>A detailed reflected ceiling plan showing exact lighting fixture locations, beam and soffit positions, HVAC register locations, and ceiling heights throughout. Captured entirely by LiDAR — no ladders required, no return visits for measurements, no guesswork on heights.</p><div class="fmt">DWG · Layered · LiDAR-Captured</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="delivs-sec">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="sec-head" style="margin-bottom:0"><div class="eyebrow">File Formats</div><h2>Industry-standard deliverables</h2><p>Every format your team needs — no conversion required.</p></div>
+      <div class="deliv-grid">
+        <div class="dcard"><div class="dcard-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><h3>AutoCAD</h3><p>Layered DWG/DXF files ready for AutoCAD and LT</p><div class="dcard-fmt">.DWG · .DXF</div></div>
+        <div class="dcard"><div class="dcard-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>SketchUp</h3><p>Clean editable geometry for SketchUp Pro workflows</p><div class="dcard-fmt">.SKP</div></div>
+        <div class="dcard"><div class="dcard-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3>Design Bundle</h3><p>AutoCAD + SketchUp + Matterport combined in one package</p><div class="dcard-fmt">Best Value</div></div>
+        <div class="dcard"><div class="dcard-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v18h18V3zm-9 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/></svg></div><h3>Ceiling Plan</h3><p>Reflected ceiling plan with fixtures, beams & heights</p><div class="dcard-fmt">.DWG Layered</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="scan-tech">
+    <div class="st-inner">
+      <div class="st-left">
+        <div class="eyebrow">Technology</div>
+        <h2>How LiDAR scanning actually works</h2>
+        <img src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/scanningipad-1920w.jpg" alt="LiDAR device"/>
+      </div>
+      <div class="feat-list">
+        <div class="feat"><h4>Light Detection and Ranging</h4><p>Our scanners emit millions of laser pulses per second, measuring the return time of each to create a precise 3D map of every surface — walls, ceilings, floors, built-ins — in minutes.</p></div>
+        <div class="feat"><h4>LiDAR Precision You Can Build With</h4><p>Unlike tape measures or photogrammetry, LiDAR captures millions of verified data points simultaneously. Every wall angle, ceiling height, and fixture position is measured — not estimated. Your deliverables reflect reality, not approximations.</p></div>
+        <div class="feat"><h4>From Raw Scan to Ready-to-Use Files</h4><p>Our certified team converts raw scan data into clean, layered, organized deliverables. Production-ready files you can open and immediately start designing with — properly named, logically organized, and built for your software.</p></div>
+        <div class="feat"><h4>1–4 Hours On-Site</h4><p>A typical residential scan takes 1–4 hours. No scaffolding, no specialized access — just a technician with a handheld or tripod-mounted scanner.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="cta-inner">
+      <div class="eyebrow" style="justify-content:center;color:var(--blue3);margin-bottom:20px">Ready to Start?</div>
+      <h2>Stop designing blind.<br>Start with <em>certainty.</em></h2>
+      <p>Get an instant, itemized quote in under 2 minutes. No sales calls, no waiting. Real pricing based on your sq footage and the deliverables you need.</p>
+      <button class="btn-blue" onclick="go('quote')" style="font-size:.95rem;padding:16px 40px">Get My Instant Quote →</button>
+    </div>
+  </section>
+  <div id="wwd-footer"></div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<div id="p-about" class="page">
+  <div class="about-split">
+    <div class="about-col-img">
+      <img src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg" alt="ScanCore founder"/>
+      <div class="about-txt">
+        <div class="eyebrow" style="color:var(--blue3);margin-bottom:18px">About ScanCore</div>
+        <h1>Built by<br><em>designers,</em><br>for designers</h1>
+      </div>
+    </div>
+    <div class="about-col-stat">
+      <div class="about-big">25<span>+</span></div>
+      <p>Years of interior design experience behind every scan. Our founder built ScanCore after living the problem firsthand — unreliable as-builts, change orders, wasted trips to site.</p>
+      <button class="btn-blue" onclick="go('quote')">Work With Us →</button>
+    </div>
+  </div>
+  <section class="about-story">
+    <div class="as-inner">
+      <div><img src="https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png" alt="ScanCore technology" class="as-img"/></div>
+      <div class="as-text">
+        <div class="eyebrow">Our Story</div>
+        <h2>Why we exist</h2>
+        <p>After 25 years designing interiors, Cortney Austin had seen it all — change orders from wrong dimensions, millwork that didn't fit, embarrassing site revisits. She built ScanCore to solve the problem at its source.</p>
+        <p>We combine professional-grade LiDAR scanning with real interior design expertise. Our technicians understand what designers actually need — not just data, but files that are ready to design with the moment they arrive.</p>
+        <div class="as-pull">
+          <blockquote>"I used to build extra time and budget into every project just to account for measurement errors. ScanCore means I don't have to do that anymore."</blockquote>
+          <cite>— Cortney Austin, Founder &amp; CEO</cite>
+        </div>
+        <p>Today, ScanCore serves interior designers in all 50 states with a certified network of technicians, consistent quality standards, and delivery timelines that keep your projects moving forward.</p>
+      </div>
+    </div>
+  </section>
+  <section class="vals-sec">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="sec-head"><div class="eyebrow">Values</div><h2>What drives us</h2></div>
+      <div class="vals-grid">
+        <div class="val-card"><div class="val-n">01 — Precision</div><h3>Accuracy Above All</h3><p>LiDAR precision isn't a marketing claim — it's physics. Every scan captures millions of verified measurements. We don't deliver files we wouldn't stake our own designs on.</p></div>
+        <div class="val-card"><div class="val-n">02 — Speed</div><h3>Fast Without Compromise</h3><p>Our standard delivery is 5 business days. Need it faster? Rush delivery is available — just note that it carries a 25% premium. Either way, you'll have your files far faster than chasing a traditional surveyor.</p></div>
+        <div class="val-card"><div class="val-n">03 — Fluency</div><h3>Designer-First Thinking</h3><p>Files are organized, named, and layered the way you actually use them — not how a surveyor would hand them off. Built by designers, for designers.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="cstrip">
+    <a href="tel:+18338652726" class="cs"><div class="cs-ico"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><div class="cs-lbl">Call</div><div class="cs-val">1.833.865.SCAN</div></div></a>
+    <a href="mailto:info@scancore.ai" class="cs"><div class="cs-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cs-lbl">Email</div><div class="cs-val">info@scancore.ai</div></div></a>
+    <div class="cs" onclick="go('quote')"><div class="cs-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="cs-lbl">Start a Project</div><div class="cs-val">Get a Quote →</div></div></div>
+  </div>
+  <div id="about-footer"></div>
+</div>
+
+<!-- ════════ CONTACT ════════ -->
+<div id="p-contact" class="page">
+  <section class="page-hero">
+    <div class="ph-bg" style="background-image:url('https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg')"></div>
+    <div class="ph-grad"></div>
+    <div class="phc">
+      <div class="eyebrow" style="color:var(--blue3);margin-bottom:24px">Get In Touch</div>
+      <h1>Let's talk<br><em>your project</em></h1>
+      <p>Questions, project enquiries, or just want to understand how it works — we're real people who respond fast.</p>
+      <button class="btn-blue" onclick="go('quote')">Skip to Instant Quote →</button>
+    </div>
+  </section>
+  <section class="cinfo">
+    <div class="cinfo-inner">
+      <div class="sec-head"><div class="eyebrow">Contact Details</div><h2>How to reach us</h2></div>
+      <div class="cinfo-cards">
+        <div class="cicard"><div class="cicard-ico"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><h3>Toll Free</h3><a href="tel:+18338652726">1.833.865.SCAN</a><p class="sub">Mon–Fri · 9AM–6PM EST</p></div>
+        <div class="cicard"><div class="cicard-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3>Email</h3><a href="mailto:info@scancore.ai">info@scancore.ai</a><p class="sub">Response within 2 hours</p></div>
+        <div class="cicard"><div class="cicard-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><h3>Instagram</h3><a href="https://www.instagram.com/scancore.ai" target="_blank">@scancore.ai</a><p class="sub">See our work</p></div>
+        <div class="cicard"><div class="cicard-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Response Time</h3><p>Under 2 Hours</p><p class="sub">During business hours</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cform-sec">
+    <div class="cform-inner">
+      <div class="eyebrow">Send a Message</div>
+      <h2>Tell us about your project</h2>
+      <p class="cform-sub">The more detail you share, the better we can help. Or just say hello — we're friendly.</p>
+      <form class="cf" onsubmit="submitContact(event)">
+        <div class="cf-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" required/></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required/></div>
+        </div>
+        <div class="cf-row">
+          <div class="fg"><label>Email</label><input type="email" placeholder="jane@studio.com" required/></div>
+          <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(555) 000-0000"/></div>
+        </div>
+        <div class="fg"><label>Studio / Company</label><input type="text" placeholder="Smith Interiors"/></div>
+        <div class="fg"><label>Service Needed</label><select><option value="">Select a service...</option><option>AutoCAD DWG Floor Plan</option><option>SketchUp 3D Model</option><option>Reflected Ceiling Plan (RCP)</option><option>Matterport 3D Virtual Tour</option><option>Design Package Bundle (AutoCAD + SketchUp + Matterport)</option><option>Not sure — help me decide</option></select></div>
+        <div class="fg"><label>Tell us more</label><textarea placeholder="Property address, sq footage, timeline, special requirements..."></textarea></div>
+        <label class="chklbl"><input type="checkbox"/>I'd like to receive updates from ScanCore</label>
+        <button type="submit" class="cf-submit">Send Message →</button>
+      </form>
+      <div class="cf-success" id="cfSuccess"><strong>Message received!</strong><br>We'll be in touch within 2 business hours.</div>
+    </div>
+  </section>
+  <div id="contact-footer"></div>
+</div>
+
+<!-- ════════ QUOTE ════════ -->
+<div id="p-quote" class="page">
+  <div class="qhero">
+    <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Instant Quote</div>
+    <h1>Get Your <em>Project Quote</em></h1>
+    <p>Real pricing, calculated live. No calls, no waiting. Select your services, enter your square footage, and see your price instantly. Rush delivery available.</p>
+    <div class="qbadges">
+      <span class="qb">📐 Instant Pricing</span>
+      <span class="qb">✅ No Obligation</span>
+      <span class="qb">⚡ Rush Delivery Available</span>
+      <span class="qb">🏠 Residential Specialists</span>
+    </div>
+  </div>
+  <div class="qwrap">
+    <!-- Sq Ft — 3 boxes -->
+    <div class="sqft-bar">
+      <!-- Box 1: Label -->
+      <div class="sqft-box sqft-box-label">
+        <div class="sqft-title">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"/></svg>
+          Enter Square Footage
+        </div>
+        <p>Your price updates instantly as you type</p>
+      </div>
+      <!-- Box 2: Input -->
+      <div class="sqft-box sqft-box-input">
+        <input type="number" id="sqFootage" placeholder="e.g. 2,400" min="100" max="50000"/>
+        <span class="sqft-unit">sq ft</span>
+      </div>
+      <!-- Box 3: Hint -->
+      <div class="sqft-box sqft-box-hint">
+        <div class="sqft-hint-icon">Price updates live</div>
+        <p>← Enter sq ft above, then select services below</p>
+      </div>
+    </div>
+    <div class="sqft-hint" id="sqftMinWarning" style="display:none;margin-bottom:16px">⚠️ Minimum is 1,000 sq ft</div>
+
+    <!-- Bundle toast -->
+    <div id="bundleUpgradeToast" class="bundle-toast" style="max-width:1140px;margin:0 auto 14px">
+      <span>🎉 You qualify for the Design Package Bundle! <span id="bundleSavingsLabel">You are saving $0 — that is 0% off vs buying separately!</span></span>
+      <button onclick="dismissBundleUpgrade()">Undo — keep services separate instead</button>
+    </div>
+
+    <div class="qbody">
+      <div>
+        <!-- Step 1: Services -->
+        <div class="q-sec">
+          <div class="q-sec-head"><h3>1 — Choose Your Services</h3><span>Select one or more</span></div>
+          <div id="serviceError" class="qerr">Please select at least one service.</div>
+          <div id="matterportIncludedNote" class="bundle-toast" style="margin-bottom:14px">✅ Matterport 3D Tour + AutoCAD Floor Plan + SketchUp 3D Model are all included in the Design Package — no need to select them separately</div>
+          <div class="qsvc-grid" id="serviceGrid"></div>
+        </div>
+
+        <!-- Step 2: Property -->
+        <div class="q-sec">
+          <div class="q-sec-head"><h3>2 — Property Details</h3><span>Needed to confirm your quote and schedule the scan</span></div>
+          <div class="qprop-grid">
+            <div class="qfield full">
+              <label>Property Address *</label>
+              <input type="text" id="propAddress" placeholder="123 Main St, City, State, ZIP"/>
+              <div class="qerr" id="addrError">Please enter the property address.</div>
+            </div>
+            <div class="qfield">
+              <label>Property Type</label>
+              <select id="propType">
+                <option value="residential_sf">Residential — Single Family</option>
+                <option value="residential_condo">Residential — Condo / Townhouse</option>
+                <option value="multi_family">Multi-Family / Duplex</option>
+                <option value="commercial">Commercial</option>
+              </select>
+            </div>
+            <div class="qfield">
+              <label>Square Footage</label>
+              <input type="number" id="sqFootage2" placeholder="Same as above — auto-filled" readonly style="background:var(--off);cursor:default"/>
+              <div class="qerr" id="sqftError">Please enter square footage (1,000–50,000).</div>
+            </div>
+            <div class="qfield full">
+              <label>Additional Notes</label>
+              <textarea id="propNotes" placeholder="Access instructions, parking, gate codes, special requirements..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact -->
+        <div class="q-sec">
+          <div class="q-sec-head"><h3>3 — Your Contact Information</h3><span>So we can send your quote and follow up to schedule</span></div>
+          <div class="qprop-grid">
+            <div class="qfield full">
+              <label>Full Name *</label>
+              <input type="text" id="contactName" placeholder="Jane Smith"/>
+              <div class="qerr" id="nameError">Please enter your full name.</div>
+            </div>
+            <div class="qfield">
+              <label>Email Address *</label>
+              <input type="email" id="contactEmail" placeholder="jane@studio.com"/>
+              <div class="qerr" id="emailError">Please enter a valid email address.</div>
+            </div>
+            <div class="qfield">
+              <label>Phone Number</label>
+              <input type="tel" id="contactPhone" placeholder="(555) 000-0000"/>
+            </div>
+            <div class="qfield full">
+              <label>Company / Referring Firm</label>
+              <input type="text" id="contactCompany" placeholder="Smith Interiors"/>
+            </div>
+          </div>
+          <p style="font-size:.75rem;color:var(--mist);margin:16px 0;font-weight:300">🔒 Your information is only used to prepare and send your quote. We never sell or share your data.</p>
+          <div id="submitError" class="qerr" style="display:none;margin-bottom:12px"></div>
+          <button class="q-submit-btn" id="submitBtn" onclick="submitQuote()" style="margin-top:4px">📋 Submit Quote Request →</button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="qsbar">
+        <div class="qbox">
+          <h4>💰 Price Breakdown</h4>
+          <div id="noServicesMsg" class="empty-txt">Select services above to see breakdown</div>
+          <div id="lineItems" style="display:none"></div>
+          <div id="totalRow" class="q-total-box" style="display:none">
+            <div class="q-total-lbl">Estimated Total</div>
+            <div class="q-total-val" id="totalVal">$0</div>
+            <div style="font-size:.65rem;color:rgba(255,255,255,.5);margin-top:6px;font-weight:300">* Final price confirmed after property inspection.</div>
+          </div>
+        </div>
+        <div class="qbox">
+          <h4>📅 Estimated Delivery</h4>
+          <div id="deliveryInfo" class="empty-txt">Enter square footage to see delivery timeline</div>
+          <table id="deliveryTable" style="display:none;width:100%;font-size:.8rem;border-collapse:collapse">
+            <thead><tr style="border-bottom:1px solid var(--rule)"><th style="text-align:left;padding:6px 0;font-weight:600;color:var(--mid);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase">Type</th><th style="text-align:right;padding:6px 0;font-weight:600;color:var(--mid);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase">Timeline</th></tr></thead>
+            <tbody id="deliveryBody"></tbody>
+          </table>
+        </div>
+        <div class="q-trust">
+          <div class="qt-item"><div class="qt-tick">✓</div>LiDAR precision scanning</div>
+          <div class="qt-item"><div class="qt-tick">✓</div>All 50 states covered</div>
+          <div class="qt-item"><div class="qt-tick">✓</div>Designer-ready files</div>
+          <div class="qt-item"><div class="qt-tick">✓</div>No hidden fees, ever</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div id="successCard" style="display:none;text-align:center;padding:52px 24px;background:var(--off);border:1.5px solid var(--rule);border-radius:2px;margin-top:24px;max-width:1140px;margin-left:auto;margin-right:auto">
+      <div style="font-size:1.8rem;margin-bottom:14px;color:var(--green)">✅</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ink);letter-spacing:-1.5px;margin-bottom:12px">Quote Submitted!</h2>
+      <p style="color:var(--mid);font-size:.95rem;line-height:1.75;font-weight:300">Thanks! We've received your quote request and our team will be in touch within 1 business day.</p>
+      <div id="quoteRefDisplay" style="margin-top:16px;font-size:.88rem;font-weight:700;color:var(--blue);letter-spacing:.06em"></div>
+    </div>
+  </div>
+  <div id="quote-footer"></div>
+</div>
+
+<!-- ════════ PREVIEW BAR ════════ -->
+<div class="preview-bar">
+  <em>Preview:</em>
+  <button class="pb on" onclick="go('home')">Home</button>
+  <button class="pb" onclick="go('wwd')">Services</button>
+  <button class="pb" onclick="go('about')">About</button>
+  <button class="pb" onclick="go('contact')">Contact</button>
+  <button class="pb" onclick="go('quote')">Quote</button>
+</div>
+
+<script>
+function injectFooters(){
+  const ft=`<footer><div class="footer-inner"><div class="f-brand"><div class="f-logo">Scan<span>Core</span></div><p>Reality Captured, Design Unleashed. LiDAR as-built documentation for interior designers — nationwide, precise, fast.</p><div class="f-social"><a href="https://www.instagram.com/scancore.ai" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.45)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="mailto:info@scancore.ai" class="fsoc"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.45)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a></div></div><div class="f-col"><h5>Services</h5><a onclick="go('wwd')">AutoCAD Floor Plans</a><a onclick="go('wwd')">SketchUp 3D Models</a><a onclick="go('wwd')">Reflected Ceiling Plans</a><a onclick="go('wwd')">Matterport 3D Tours</a><a onclick="go('wwd')">Point Cloud Data</a><a onclick="go('wwd')">Design Package Bundle</a></div><div class="f-col"><h5>Company</h5><a onclick="go('about')">About Us</a><a onclick="go('about')">Our Story</a><a onclick="go('contact')">Contact</a><a onclick="go('quote')">Get a Quote</a></div><div class="f-col"><h5>Contact</h5><a href="tel:+18338652726">1.833.865.SCAN</a><a href="mailto:info@scancore.ai">info@scancore.ai</a><p>Mon–Fri · 9AM–6PM EST</p></div></div><div class="f-bottom"><span class="f-copy">© 2025 ScanCore.ai · All rights reserved</span><span class="f-copy">Built by designers, for designers</span></div></footer>`;
+  ['home','wwd','about','contact','quote'].forEach(id=>{const el=document.getElementById(id+'-footer');if(el)el.innerHTML=ft;});
+}
+function go(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.nav-a').forEach(l=>l.classList.remove('on'));
+  document.querySelectorAll('.pb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('p-'+page)?.classList.add('on');
+  document.getElementById('nl-'+page)?.classList.add('on');
+  document.querySelectorAll('.pb').forEach(b=>{if(b.textContent.toLowerCase().includes(page==='wwd'?'serv':page))b.classList.add('on');});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+let sIdx=0;
+const slides=document.querySelectorAll('.hero-slide-img');
+const hdots=document.querySelectorAll('.hdot');
+function nextSlide(i){slides[sIdx].classList.remove('on');hdots[sIdx].classList.remove('on');sIdx=i!==undefined?i:(sIdx+1)%slides.length;slides[sIdx].classList.add('on');hdots[sIdx].classList.add('on');}
+setInterval(()=>nextSlide(),5000);
+hdots.forEach(d=>d.addEventListener('click',()=>nextSlide(parseInt(d.dataset.i))));
+function submitContact(e){e.preventDefault();document.querySelector('.cf').style.display='none';document.getElementById('cfSuccess').style.display='block';}
+
+// ── EXACT PRICING ENGINE from scantracker.scancore.ai/quote ──
+// Matterport: $200 base up to 2000sqft, +$50 per additional 1000sqft
+// AutoCAD: $420 up to 1000sqft, $0.42/sqft above 1000sqft
+// SketchUp: $420 up to 1000sqft, $0.42/sqft above 1000sqft
+// Design Pkg: $700 up to 1000sqft, $0.70/sqft above (includes AutoCAD + SketchUp + Matterport)
+// RCP: $200 up to 1000sqft, $0.20/sqft above 1000sqft
+// Expedited: +25% of subtotal
+const SERVICES = [
+  { id:'matterport', name:'Matterport 3D Virtual Tour', desc:'Interactive 3D walkthrough with 6-month hosting included', badge:'popular', badgeText:'⭐ Most Popular',
+    calc:(sqft)=>sqft<=2000?200:200+Math.ceil((sqft-2000)/1000)*50,
+    priceLabel:(sqft)=>sqft<=2000?'$200 (up to 2,000 sq ft)':'$200 + $50/1,000 sq ft over 2,000' },
+  { id:'autocad', name:'AutoCAD DWG 2D Floor Plan', desc:'Includes plumbing, appliances, lighting, windows/doors & ceiling heights', badge:null,
+    calc:(sqft)=>sqft<=1000?420:Math.round(sqft*0.42),
+    priceLabel:(sqft)=>sqft<=1000?'$420 (up to 1,000 sq ft)':'$0.42/sq ft' },
+  { id:'sketchup', name:'SketchUp SKP 3D Model', desc:'Full 3D building model in SketchUp format for design workflows', badge:null,
+    calc:(sqft)=>sqft<=1000?420:Math.round(sqft*0.42),
+    priceLabel:(sqft)=>sqft<=1000?'$420 (up to 1,000 sq ft)':'$0.42/sq ft' },
+  { id:'design_pkg', name:'Design Package Bundle', desc:'AutoCAD Floor Plan + SketchUp 3D Model + Matterport Tour — everything in one package', badge:'bundle', badgeText:'🏆 Includes Matterport 3D Virtual Tour — FREE',
+    calc:(sqft)=>sqft<=1000?700:Math.round(sqft*0.70),
+    priceLabel:(sqft)=>sqft<=1000?'$700 (up to 1,000 sq ft)':'$0.70/sq ft' },
+  { id:'rcp', name:'RCP — Reflected Ceiling Plan', desc:'Detailed ceiling plan showing lighting fixtures, beams, soffits, HVAC registers & heights', badge:null,
+    calc:(sqft)=>sqft<=1000?200:Math.round(sqft*0.20),
+    priceLabel:(sqft)=>sqft<=1000?'$200 (up to 1,000 sq ft)':'$0.20/sq ft' },
+  { id:'expedited', name:'Expedited Delivery', desc:'Rush turnaround — your deliverables prioritized ahead of standard queue. Adds 25% to your total.', badge:'rush', badgeText:'⚡ +25% of total', isExpedited:true,
+    calc:(sqft)=>0,
+    priceLabel:(sqft)=>'+25% of total' },
+];
+
+const qState = { selected: new Set(), sqft: 0 };
+let _bundleDismissed = false;
+
+function qInit() {
+  const grid = document.getElementById('serviceGrid');
+  if (!grid) return;
+  grid.innerHTML = SERVICES.map(s => `
+    <div class="qsvc" id="svc_${s.id}" onclick="toggleService('${s.id}')">
+      <div class="qsvc-chk" id="chk_${s.id}"></div>
+      <div class="qsvc-name">${s.name}</div>
+      <div class="qsvc-desc">${s.desc}</div>
+      <div class="qsvc-price" id="price_${s.id}">${s.priceLabel(1000)}</div>
+      ${s.badge ? `<span class="q-badge ${s.badge}">${s.badgeText}</span>` : ''}
+    </div>`).join('');
+  // Sqft input sync
+  const sqftEl = document.getElementById('sqFootage');
+  const sqft2El = document.getElementById('sqFootage2');
+  if (sqftEl) sqftEl.addEventListener('input', () => {
+    if (sqft2El) sqft2El.value = sqftEl.value;
+    clearTimeout(window._recalcTimer);
+    window._recalcTimer = setTimeout(recalc, 150);
+  });
+  recalc();
+}
+
+function calcSeparate(sqft) {
+  const m = sqft<=2000?200:200+Math.ceil((sqft-2000)/1000)*50;
+  const c = sqft<=1000?420:Math.round(sqft*0.42);
+  const s = sqft<=1000?420:Math.round(sqft*0.42);
+  return m+c+s;
+}
+function calcPkg(sqft) { return sqft<=1000?700:Math.round(sqft*0.70); }
+
+function checkBundleUpgrade() {
+  const has = id => qState.selected.has(id);
+  const toast = document.getElementById('bundleUpgradeToast');
+  if (!toast) return;
+  if (has('matterport')&&has('autocad')&&has('sketchup')&&!has('design_pkg')&&!_bundleDismissed) {
+    qState.selected.add('design_pkg');
+    qState.selected.delete('matterport'); qState.selected.delete('autocad'); qState.selected.delete('sketchup');
+    ['matterport','autocad','sketchup'].forEach(id=>document.getElementById('svc_'+id)?.classList.add('qsvc-disabled'));
+    document.getElementById('matterportIncludedNote')?.classList.add('show');
+    _updateBundleSavings(); toast.classList.add('show');
+  } else if (has('design_pkg')) {
+    _updateBundleSavings(); toast.classList.add('show');
+  } else {
+    toast.classList.remove('show');
+  }
+}
+function _updateBundleSavings() {
+  const sqft = qState.sqft||1000;
+  const savings = calcSeparate(sqft)-calcPkg(sqft);
+  const pct = Math.round((savings/calcSeparate(sqft))*100);
+  const el = document.getElementById('bundleSavingsLabel');
+  if (el) el.textContent = `You are saving $${savings.toLocaleString()} — that is ${pct}% off vs buying separately!`;
+}
+
+function dismissBundleUpgrade() {
+  _bundleDismissed = true;
+  qState.selected.delete('design_pkg');
+  qState.selected.add('matterport'); qState.selected.add('autocad'); qState.selected.add('sketchup');
+  ['matterport','autocad','sketchup'].forEach(id=>document.getElementById('svc_'+id)?.classList.remove('qsvc-disabled'));
+  document.getElementById('matterportIncludedNote')?.classList.remove('show');
+  document.getElementById('bundleUpgradeToast')?.classList.remove('show');
+  recalc();
+}
+
+function toggleService(id) {
+  if (id === 'design_pkg') {
+    if (qState.selected.has('design_pkg')) {
+      qState.selected.delete('design_pkg');
+      ['matterport','autocad','sketchup'].forEach(i=>document.getElementById('svc_'+i)?.classList.remove('qsvc-disabled'));
+      document.getElementById('matterportIncludedNote')?.classList.remove('show');
+    } else {
+      qState.selected.add('design_pkg');
+      ['matterport','autocad','sketchup'].forEach(i=>{qState.selected.delete(i);document.getElementById('svc_'+i)?.classList.add('qsvc-disabled');});
+      document.getElementById('matterportIncludedNote')?.classList.add('show');
+    }
+  } else if (id==='autocad'||id==='sketchup') {
+    if (qState.selected.has(id)) { qState.selected.delete(id); _bundleDismissed=false; }
+    else {
+      qState.selected.add(id);
+      if (qState.selected.has('design_pkg')) {
+        qState.selected.delete('design_pkg');
+        ['matterport','autocad','sketchup'].forEach(sid=>{document.getElementById('svc_'+sid)?.classList.remove('qsvc-disabled');});
+        document.getElementById('matterportIncludedNote')?.classList.remove('show');
+      }
+    }
+  } else {
+    if (qState.selected.has(id)) { qState.selected.delete(id); if(id==='matterport')_bundleDismissed=false; }
+    else { qState.selected.add(id); }
+  }
+  checkBundleUpgrade();
+  recalc();
+}
+
+function fmtCurrency(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);}
+
+function recalc() {
+  const sqftEl = document.getElementById('sqFootage');
+  const rawSqft = parseInt(sqftEl?.value||'0',10)||0;
+  const minWarn = document.getElementById('sqftMinWarning');
+  if (rawSqft>0&&rawSqft<1000) { if(minWarn)minWarn.style.display='flex'; qState.sqft=0; }
+  else { if(minWarn)minWarn.style.display='none'; qState.sqft=Math.max(0,rawSqft); }
+  const sqft = qState.sqft;
+
+  SERVICES.forEach(s => {
+    const priceEl = document.getElementById('price_'+s.id);
+    const cardEl = document.getElementById('svc_'+s.id);
+    const chkEl = document.getElementById('chk_'+s.id);
+    if (!priceEl||!cardEl||!chkEl) return;
+    const isSel = qState.selected.has(s.id);
+    cardEl.classList.toggle('sel', isSel);
+    chkEl.textContent = isSel?'✓':'';
+    if (s.isExpedited) { priceEl.textContent='+25% of subtotal'; return; }
+    if (sqft>0) priceEl.textContent = fmtCurrency(s.calc(sqft))+' for '+sqft.toLocaleString()+' sq ft';
+    else priceEl.textContent = s.priceLabel(1000);
+  });
+
+  // Subtotal
+  let subtotal=0;
+  const lineItemsHtml=[];
+  qState.selected.forEach(id=>{
+    if(id==='expedited')return;
+    const svc=SERVICES.find(s=>s.id===id);
+    if(!svc||sqft===0)return;
+    const price=svc.calc(sqft);
+    subtotal+=price;
+    lineItemsHtml.push(`<div class="line-item"><span class="li-lbl">${svc.name}</span><span class="li-val">${fmtCurrency(price)}</span></div>`);
+  });
+
+  let total=subtotal;
+  if(qState.selected.has('expedited')&&subtotal>0){
+    const expFee=Math.round(subtotal*0.25);
+    total+=expFee;
+    lineItemsHtml.push(`<div class="line-item"><span class="li-lbl">⚡ Expedited Delivery (25%)</span><span class="li-val">+${fmtCurrency(expFee)}</span></div>`);
+    const expEl=document.getElementById('price_expedited');
+    if(expEl)expEl.textContent='+'+fmtCurrency(expFee)+' (25% of subtotal)';
+  } else {
+    const expEl=document.getElementById('price_expedited');
+    if(expEl)expEl.textContent=subtotal>0?'+'+fmtCurrency(Math.round(subtotal*0.25))+' (25% of subtotal)':'+25% of total';
+  }
+
+  checkBundleUpgrade();
+  const hasSelection=qState.selected.size>0&&sqft>0;
+  document.getElementById('noServicesMsg').style.display=hasSelection?'none':'block';
+  document.getElementById('lineItems').style.display=hasSelection?'block':'none';
+  document.getElementById('totalRow').style.display=hasSelection?'block':'none';
+  if(hasSelection){
+    document.getElementById('lineItems').innerHTML=lineItemsHtml.join('');
+    document.getElementById('totalVal').textContent=fmtCurrency(total);
+  }
+  updateDelivery(sqft);
+}
+
+function updateDelivery(sqft) {
+  const infoEl=document.getElementById('deliveryInfo');
+  const tableEl=document.getElementById('deliveryTable');
+  const bodyEl=document.getElementById('deliveryBody');
+  if(!sqft||sqft<100){infoEl.style.display='block';tableEl.style.display='none';return;}
+  infoEl.style.display='none';tableEl.style.display='table';
+  const std=sqft<=4000?'5 business days':sqft<=6000?'7 business days':'8+ business days';
+  const rush=sqft<=1000?'3 business days':sqft<=2000?'4 business days':sqft<=4000?'5 business days':'6+ business days';
+  const onsite=sqft<2000?'1–1.5 hours':sqft<=4000?'1.5–2 hours':sqft<=6000?'2–3 hours':'3–4+ hours';
+  const isRush=qState.selected.has('expedited');
+  bodyEl.innerHTML=`
+    <tr class="${!isRush?'hi':''}"><td style="padding:6px 0;color:${!isRush?'var(--ink)':'var(--mid)'};font-weight:${!isRush?700:400}">Standard delivery</td><td style="text-align:right;padding:6px 0;color:${!isRush?'var(--ink)':'var(--mid)'};font-weight:${!isRush?700:400}">${std}</td></tr>
+    <tr class="${isRush?'hi':''}"><td style="padding:6px 0;color:${isRush?'var(--ink)':'var(--mid)'};font-weight:${isRush?700:400}">⚡ Rush delivery</td><td style="text-align:right;padding:6px 0;color:${isRush?'var(--ink)':'var(--mid)'};font-weight:${isRush?700:400}">${rush}</td></tr>
+    <tr><td style="padding:6px 0;color:var(--mid)">Time on site</td><td style="text-align:right;padding:6px 0;color:var(--mid)">${onsite}</td></tr>`;
+}
+
+function submitQuote() {
+  let ok=true;
+  const sqft=parseInt(document.getElementById('sqFootage')?.value||'0',10);
+  const addr=(document.getElementById('propAddress')?.value||'').trim();
+  const name=(document.getElementById('contactName')?.value||'').trim();
+  const email=(document.getElementById('contactEmail')?.value||'').trim();
+
+  const svcErrEl=document.getElementById('serviceError');
+  svcErrEl.classList.toggle('show',qState.selected.size===0);
+  if(qState.selected.size===0)ok=false;
+
+  const sqftErrEl=document.getElementById('sqftError');
+  const sqftInputEl=document.getElementById('sqFootage');
+  if(!sqft||sqft<1000||sqft>50000){
+    sqftErrEl.textContent=sqft>0&&sqft<1000?'Minimum project size is 1,000 sq ft.':'Please enter square footage (1,000–50,000).';
+    sqftErrEl.classList.add('show'); sqftInputEl?.classList.add('error'); ok=false;
+  } else { sqftErrEl.classList.remove('show'); sqftInputEl?.classList.remove('error'); }
+
+  const addrErrEl=document.getElementById('addrError');
+  if(!addr||addr.length<5){addrErrEl.classList.add('show');document.getElementById('propAddress')?.classList.add('error');ok=false;}
+  else{addrErrEl.classList.remove('show');document.getElementById('propAddress')?.classList.remove('error');}
+
+  const nameErrEl=document.getElementById('nameError');
+  if(!name||name.length<2){nameErrEl.classList.add('show');document.getElementById('contactName')?.classList.add('error');ok=false;}
+  else{nameErrEl.classList.remove('show');document.getElementById('contactName')?.classList.remove('error');}
+
+  const emailErrEl=document.getElementById('emailError');
+  const eok=/^[^@]+@[^@]+\.[^@]+$/.test(email);
+  if(!eok){emailErrEl.classList.add('show');document.getElementById('contactEmail')?.classList.add('error');ok=false;}
+  else{emailErrEl.classList.remove('show');document.getElementById('contactEmail')?.classList.remove('error');}
+
+  if(!ok)return;
+
+  // Show success
+  document.querySelector('.qbody').style.display='none';
+  document.querySelector('.sqft-bar').style.display='none';
+  document.getElementById('sqftMinWarning').style.display='none';
+  document.getElementById('bundleUpgradeToast').style.display='none';
+  document.getElementById('successCard').style.display='block';
+  const ref='QT-'+String(Math.floor(Math.random()*900)+100).padStart(3,'0');
+  document.getElementById('quoteRefDisplay').textContent='Quote #'+ref;
+  window.scrollTo(0,0);
+}
+
+// qsvc-disabled class needs CSS
+document.head.insertAdjacentHTML('beforeend','<style>.qsvc-disabled{opacity:.35!important;cursor:not-allowed!important;pointer-events:none!important}.qerr.show{display:block!important}.bundle-toast.show{display:flex!important}.qfield input.error,.qfield textarea.error,.qfield select.error{border-color:var(--red)!important}</style>');
+
+document.addEventListener('DOMContentLoaded',()=>{injectFooters();qInit();});
+</script>
+</body>
+</html>
