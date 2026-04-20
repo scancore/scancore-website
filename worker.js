@@ -63,7 +63,7 @@ export default {
     }
 
     // Replace the fake submitQuote with the real one
-    // Note: Wrangler normalises "function submitQuote() {" (space before brace)
+    // Note: exact match with space before brace as it appears in index.html
     const html = HTML.replace('function submitQuote() {', PATCHED_FN);
 
     return new Response(html, {
