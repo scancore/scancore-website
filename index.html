@@ -762,17 +762,6 @@ footer{background:var(--ink);padding:72px 80px 100px}
   <button class="ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
 
-  <div class="mob-drawer">
-    <button class="mob-close" onclick="closeMobNav()">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <a class="mob-link" onclick="closeMobNav();go('home')">Home</a>
-    <a class="mob-link" onclick="closeMobNav();go('wwd')">Services</a>
-    <a class="mob-link" onclick="closeMobNav();go('about')">About</a>
-    <a class="mob-link" onclick="closeMobNav();go('contact')">Contact</a>
-    <button class="mob-cta" onclick="closeMobNav();go('quote')">Get a Quote</button>
-  </div>
-</div>
 
 <!-- ════════ HOME ════════ -->
 <div id="p-home" class="page on">
@@ -1724,22 +1713,30 @@ function updateInlineBreakdown() {
 // ── MOBILE NAV ──
 function openMobNav(){
   var nav = document.getElementById('mobNav');
+  var drawer = document.getElementById('mobDrawer');
   var ham = document.getElementById('ham');
   if(!nav) return;
-  // Ensure mob-nav is last child of body to avoid stacking context issues
-  if(nav.parentElement !== document.body || nav !== document.body.lastElementChild) {
-    document.body.appendChild(nav);
-  }
-  nav.classList.add('open');
+  // Move to end of body to escape any stacking context
+  document.body.appendChild(nav);
+  nav.style.display = 'block';
   if(ham) ham.classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Trigger slide-in on next frame
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      if(drawer) drawer.style.transform = 'translateX(0)';
+    });
+  });
 }
 function closeMobNav(){
   var nav = document.getElementById('mobNav');
+  var drawer = document.getElementById('mobDrawer');
   var ham = document.getElementById('ham');
-  if(nav) nav.classList.remove('open');
+  if(drawer) drawer.style.transform = 'translateX(100%)';
   if(ham) ham.classList.remove('open');
-  document.body.style.overflow='';
+  document.body.style.overflow = '';
+  // Hide after transition
+  setTimeout(function(){ if(nav) nav.style.display = 'none'; }, 320);
 }
 // Ham wired in main DOMContentLoaded below
 
@@ -1755,7 +1752,20 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 <!-- ── MOBILE NAV DRAWER ── -->
-<div class="mob-nav" id="mobNav">
-  <div class="mob-overlay" onclick="closeMobNav()"></div>
+<!-- ════ MOBILE NAV DRAWER ════ -->
+<div id="mobNav" style="display:none;position:fixed;inset:0;z-index:9999;">
+  <div onclick="closeMobNav()" style="position:absolute;inset:0;background:rgba(11,18,32,0.55);backdrop-filter:blur(3px)"></div>
+  <div id="mobDrawer" style="position:fixed;top:0;right:0;bottom:0;width:min(300px,82vw);background:#ffffff;z-index:10000;display:flex;flex-direction:column;padding:24px 24px 40px;overflow-y:auto;box-shadow:-4px 0 40px rgba(0,0,0,0.18);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);">
+    <button onclick="closeMobNav()" style="align-self:flex-end;background:none;border:none;cursor:pointer;padding:4px;margin-bottom:20px;line-height:0">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0B1220" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a onclick="closeMobNav();go('home')" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:600;color:#0B1220;padding:14px 0;border-bottom:1px solid #dde3f0;cursor:pointer;display:block;text-decoration:none">Home</a>
+    <a onclick="closeMobNav();go('wwd')" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:600;color:#0B1220;padding:14px 0;border-bottom:1px solid #dde3f0;cursor:pointer;display:block;text-decoration:none">Services</a>
+    <a onclick="closeMobNav();go('about')" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:600;color:#0B1220;padding:14px 0;border-bottom:1px solid #dde3f0;cursor:pointer;display:block;text-decoration:none">About</a>
+    <a onclick="closeMobNav();go('contact')" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:600;color:#0B1220;padding:14px 0;cursor:pointer;display:block;text-decoration:none">Contact</a>
+    <button onclick="closeMobNav();go('quote')" style="margin-top:24px;background:#0B1220;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.04em;padding:14px 20px;border-radius:3px;border:none;cursor:pointer;width:100%;transition:background .2s">Get a Quote</button>
+  </div>
+</div>
+
 </body>
 </html>
