@@ -1,7 +1,6 @@
 import HTML from './index.html';
 
-// Real submitQuote that posts to /api/public-quote
-const PATCHED_FN = `async function submitQuote(){
+const PATCHED_FN = `async function submitQuote() {
   let ok=true;
   const sqft=parseInt(document.getElementById('sqFootage')?.value||'0',10);
   const addr=(document.getElementById('propAddress')?.value||'').trim();
@@ -55,7 +54,6 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
 
-    // Proxy quote submissions to ScanTracker
     if (url.pathname === '/api/public-quote' && request.method === 'POST') {
       return fetch('https://scantracker.scancore.ai/api/public-quote', {
         method: 'POST',
@@ -64,8 +62,9 @@ export default {
       });
     }
 
-    // Serve index.html with real submitQuote injected
-    const html = HTML.replace('function submitQuote(){', PATCHED_FN);
+    // Replace the fake submitQuote with the real one
+    // Note: Wrangler normalises "function submitQuote() {" (space before brace)
+    const html = HTML.replace('function submitQuote() {', PATCHED_FN);
 
     return new Response(html, {
       headers: {
