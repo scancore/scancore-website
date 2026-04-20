@@ -664,34 +664,6 @@ footer{background:var(--ink);padding:72px 80px 100px}
   .qbadges{flex-direction:column;align-items:center}
 }
 
-/* ── LIVE PRICE BAR — mobile only, hidden on desktop ── */
-.live-price-bar{display:none}
-@media(max-width:900px){
-  .live-price-bar{
-    display:flex;position:sticky;top:66px;z-index:498;
-    background:var(--ink);border-bottom:2px solid var(--blue);
-    align-items:center;gap:10px;padding:9px 16px;
-    overflow-x:auto;-webkit-overflow-scrolling:touch;
-  }
-  .lpb-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap;flex-shrink:0}
-  .lpb-sqft-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
-  .lpb-sqft-wrap label{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.45);white-space:nowrap}
-  #lpb-sqft{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;padding:4px 8px;width:88px;outline:none;-moz-appearance:textfield}
-  #lpb-sqft::-webkit-outer-spin-button,#lpb-sqft::-webkit-inner-spin-button{-webkit-appearance:none}
-  #lpb-sqft::placeholder{color:rgba(255,255,255,.25);font-weight:400}
-  .lpb-sep{width:1px;height:16px;background:rgba(255,255,255,.1);flex-shrink:0}
-  .lpb-services{display:flex;align-items:center;gap:6px;flex-shrink:0}
-  .lpb-svc{display:flex;align-items:center;gap:4px;font-size:.65rem;font-weight:500;color:rgba(255,255,255,.45);white-space:nowrap;cursor:pointer;padding:4px 9px;border-radius:3px;border:1px solid rgba(255,255,255,.1);transition:all .15s;flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
-  .lpb-svc.on{background:rgba(20,85,232,.3);border-color:var(--blue3);color:#fff;font-weight:700}
-  .lpb-dot{width:4px;height:4px;border-radius:50%;background:var(--blue3);opacity:0;flex-shrink:0}
-  .lpb-svc.on .lpb-dot{opacity:1}
-  .lpb-result{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
-  .lpb-total-lbl{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap}
-  .lpb-total-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;white-space:nowrap;min-width:60px;text-align:right}
-  .lpb-cta{background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:3px;white-space:nowrap;flex-shrink:0}
-}
-@media(max-width:480px){
-  .lpb-label{display:none}
   .lpb-sqft-wrap label{display:none}
   #lpb-sqft{width:76px}
   .lpb-total-lbl{display:none}
@@ -776,28 +748,6 @@ footer{background:var(--ink);padding:72px 80px 100px}
     <a href="tel:+18338652726" class="ni"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
   </div>
 </nav>
-
-<!-- ════ LIVE PRICE BAR ════ -->
-<div class="live-price-bar" id="livePriceBar">
-  <span class="lpb-label">Live Price</span>
-  <div class="lpb-sqft-wrap">
-    <label for="lpb-sqft">Sq Ft</label>
-    <input type="number" id="lpb-sqft" placeholder="2,000" min="100" max="50000"/>
-  </div>
-  <div class="lpb-sep"></div>
-  <div class="lpb-services">
-    <div class="lpb-svc" data-id="autocad"    onclick="lpbToggle('autocad')"><span class="lpb-dot"></span>AutoCAD</div>
-    <div class="lpb-svc" data-id="sketchup"   onclick="lpbToggle('sketchup')"><span class="lpb-dot"></span>SketchUp</div>
-    <div class="lpb-svc" data-id="matterport" onclick="lpbToggle('matterport')"><span class="lpb-dot"></span>Matterport</div>
-    <div class="lpb-svc" data-id="rcp"        onclick="lpbToggle('rcp')"><span class="lpb-dot"></span>RCP</div>
-    <div class="lpb-svc" data-id="design_pkg" onclick="lpbToggle('design_pkg')"><span class="lpb-dot"></span>Bundle</div>
-  </div>
-  <div class="lpb-result">
-    <span class="lpb-total-lbl">Est. Total</span>
-    <span class="lpb-total-val" id="lpbTotal">—</span>
-    <button class="lpb-cta" onclick="go('quote')">Get Quote →</button>
-  </div>
-</div>
 
 <!-- ════════ HOME ════════ -->
 <div id="p-home" class="page on">
@@ -1207,6 +1157,20 @@ footer{background:var(--ink);padding:72px 80px 100px}
           <div class="qsvc-grid" id="serviceGrid"></div>
         </div>
 
+
+        <!-- ── PRICE BREAKDOWN (inline, quote page only) ── -->
+        <div class="q-sec" id="inlineBreakdown" style="display:none">
+          <div class="q-sec-head">
+            <h3>💰 Price Breakdown</h3>
+            <span id="inlineBreakdownNote">Enter sq ft above to see live pricing</span>
+          </div>
+          <div id="inlineLineItems"></div>
+          <div id="inlineTotalRow" style="display:none;margin-top:14px;padding-top:14px;border-top:2px solid var(--rule)">
+            <span style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)">Estimated Total</span>
+            <span id="inlineTotalVal" style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--ink);letter-spacing:-1px">—</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--mist);margin-top:10px;font-weight:300">* Final price confirmed after property review.</p>
+        </div>
         <!-- Step 2: Property -->
         <div class="q-sec">
           <div class="q-sec-head"><h3>2 — Property Details</h3><span>Needed to confirm your quote and schedule the scan</span></div>
@@ -1519,6 +1483,7 @@ function recalc() {
     document.getElementById('totalVal').textContent=fmtCurrency(total);
   }
   updateDelivery(sqft);
+  updateInlineBreakdown();
 }
 
 function updateDelivery(sqft) {
@@ -1585,55 +1550,65 @@ function submitQuote() {
 document.head.insertAdjacentHTML('beforeend','<style>.qsvc-disabled{opacity:.35!important;cursor:not-allowed!important;pointer-events:none!important}.qerr.show{display:block!important}.bundle-toast.show{display:flex!important}.qfield input.error,.qfield textarea.error,.qfield select.error{border-color:var(--red)!important}</style>');
 
 
-// ════ LIVE PRICE BAR ════
-const LPB = {
-  autocad:    sq => sq<=1000 ? 420 : Math.round(sq*0.42),
-  sketchup:   sq => sq<=1000 ? 420 : Math.round(sq*0.42),
-  matterport: sq => sq<=2000 ? 200 : 200+Math.ceil((sq-2000)/1000)*50,
-  rcp:        sq => sq<=1000 ? 200 : Math.round(sq*0.20),
-  design_pkg: sq => sq<=1000 ? 700 : Math.round(sq*0.70),
-};
-const lpbSel = new Set();
-function lpbToggle(id) {
-  if(id==='design_pkg'){
-    if(lpbSel.has('design_pkg')){ lpbSel.delete('design_pkg'); }
-    else{ ['autocad','sketchup','matterport'].forEach(x=>lpbSel.delete(x)); lpbSel.add('design_pkg'); }
-  } else if(['autocad','sketchup','matterport'].includes(id)){
-    lpbSel.delete('design_pkg');
-    lpbSel.has(id) ? lpbSel.delete(id) : lpbSel.add(id);
-  } else {
-    lpbSel.has(id) ? lpbSel.delete(id) : lpbSel.add(id);
-  }
-  lpbRecalc();
-}
-function lpbRecalc(){
-  const sq = parseInt(document.getElementById('lpb-sqft')?.value||'0')||0;
-  // Update button states
-  document.querySelectorAll('.lpb-svc').forEach(el=>{
-    el.classList.toggle('on', lpbSel.has(el.dataset.id));
-  });
-  // Calculate total
-  const totalEl = document.getElementById('lpbTotal');
-  if(!totalEl) return;
-  if(!sq || lpbSel.size===0){ totalEl.textContent='—'; return; }
-  let total = 0;
-  lpbSel.forEach(id=>{ if(LPB[id]) total += LPB[id](sq); });
-  totalEl.textContent = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(total);
-}
-document.addEventListener('DOMContentLoaded',()=>{
-  const lpbInput = document.getElementById('lpb-sqft');
-  if(lpbInput){
-    lpbInput.addEventListener('input', lpbRecalc);
-    // Keep in sync with quote page sqft if on quote page
-    lpbInput.addEventListener('input', ()=>{
-      const qEl = document.getElementById('sqFootage');
-      if(qEl && document.getElementById('p-quote')?.classList.contains('on')){
-        qEl.value = lpbInput.value;
-        if(typeof recalc==='function') recalc();
-      }
+
+// ── INLINE PRICE BREAKDOWN (quote page) ──
+function updateInlineBreakdown() {
+  const sq = qState.sqft;
+  const bd = document.getElementById('inlineBreakdown');
+  if (!bd) return;
+  // Show panel whenever at least one service is selected
+  const hasSvc = qState.selected.size > 0;
+  bd.style.display = hasSvc ? 'block' : 'none';
+  if (!hasSvc) return;
+  // Note
+  const note = document.getElementById('inlineBreakdownNote');
+  if (note) note.textContent = sq > 0 ? '' : 'Enter sq ft above to see live pricing';
+  // Line items
+  const items = document.getElementById('inlineLineItems');
+  if (items) {
+    let rows = '';
+    qState.selected.forEach(id => {
+      if (id === 'expedited') return;
+      const svc = SERVICES.find(s => s.id === id);
+      if (!svc) return;
+      const price = sq > 0 ? fmtCurrency(svc.calc(sq)) : '—';
+      rows += `<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule)">
+        <span style="font-size:.85rem;color:var(--mid);font-weight:400">${svc.name}</span>
+        <span style="font-size:.85rem;font-weight:700;color:var(--ink)">${price}</span>
+      </div>`;
     });
+    if (qState.selected.has('expedited') && sq > 0) {
+      const sub = [...qState.selected].filter(id=>id!=='expedited')
+        .reduce((t,id)=>{ const s=SERVICES.find(s=>s.id===id); return t+(s?s.calc(sq):0); },0);
+      rows += `<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule)">
+        <span style="font-size:.85rem;color:var(--mid)">⚡ Expedited Delivery (25%)</span>
+        <span style="font-size:.85rem;font-weight:700;color:var(--ink)">+${fmtCurrency(Math.round(sub*0.25))}</span>
+      </div>`;
+    }
+    items.innerHTML = rows;
   }
-});
+  // Total
+  const totalRow = document.getElementById('inlineTotalRow');
+  const totalVal = document.getElementById('inlineTotalVal');
+  if (totalRow && totalVal) {
+    if (sq > 0 && qState.selected.size > 0) {
+      let sub = 0;
+      qState.selected.forEach(id => {
+        if (id==='expedited') return;
+        const s = SERVICES.find(s=>s.id===id);
+        if (s) sub += s.calc(sq);
+      });
+      const total = qState.selected.has('expedited') ? Math.round(sub*1.25) : sub;
+      totalRow.style.display = 'flex';
+      totalRow.style.justifyContent = 'space-between';
+      totalRow.style.alignItems = 'baseline';
+      totalVal.textContent = fmtCurrency(total);
+    } else {
+      totalRow.style.display = 'none';
+    }
+  }
+}
+
 
 document.addEventListener('DOMContentLoaded',()=>{injectFooters();qInit();});
 </script>
