@@ -196,7 +196,7 @@ a{text-decoration:none;color:inherit}
 .cov-n{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--blue3);line-height:1;letter-spacing:-1px}
 .cov-item h4{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:5px}
 .cov-item p{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
-.map-box{background:var(--ink2);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;padding:28px}
+.map-box{aspect-ratio:960/600;background:var(--ink2);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px}
 .map-box svg{width:100%;height:auto}
 
 /* ══════════════════════════
@@ -594,7 +594,7 @@ footer{background:var(--ink);padding:72px 80px 100px}
   .phone-wrap{display:none}
   .how-visual{display:none}
   .at-img-wrap{display:none}
-  .map-box{aspect-ratio:1.4;padding:16px}
+  .map-box{aspect-ratio:960/600;padding:16px}
 
   /* GRIDS */
   .svc-grid{grid-template-columns:1fr;gap:1px}
@@ -885,22 +885,78 @@ footer{background:var(--ink);padding:72px 80px 100px}
         </div>
       </div>
       <div class="map-box">
-        <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
-          <path d="M60,108 L100,80 L160,70 L220,65 L280,62 L340,60 L400,62 L460,66 L510,74 L548,88 L565,108 L572,136 L574,164 L568,192 L554,220 L534,246 L512,264 L488,276 L462,284 L434,292 L408,304 L384,316 L360,328 L332,336 L302,330 L272,322 L244,312 L220,302 L196,292 L168,280 L140,264 L114,246 L92,224 L74,200 L62,174 L60,148 Z" fill="rgba(20,85,232,0.06)" stroke="rgba(91,142,255,0.2)" stroke-width="1.5"/>
-          <circle cx="300" cy="180" r="4" fill="#1455E8" opacity=".9"/>
-          <circle cx="300" cy="180" r="14" fill="none" stroke="#1455E8" stroke-width="1" opacity=".3"><animate attributeName="r" values="5;22;5" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="3s" repeatCount="indefinite"/></circle>
-          <circle cx="154" cy="144" r="3.5" fill="#5B8EFF" opacity=".8"/>
-          <circle cx="468" cy="162" r="3.5" fill="#5B8EFF" opacity=".8"/>
-          <circle cx="400" cy="256" r="3.5" fill="#5B8EFF" opacity=".8"/>
-          <circle cx="220" cy="254" r="3.5" fill="#5B8EFF" opacity=".8"/>
-          <circle cx="118" cy="200" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="362" cy="112" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="522" cy="128" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="274" cy="298" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="446" cy="210" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="178" cy="212" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <circle cx="316" cy="318" r="2.5" fill="#8CB4FF" opacity=".6"/>
-          <text x="300" y="368" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9.5" font-weight="700" fill="rgba(91,142,255,0.35)" letter-spacing="3">ALL 50 STATES COVERED</text>
+        <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <defs><style>.us-state{fill:rgba(20,85,232,0.08);stroke:rgba(91,142,255,0.4);stroke-width:0.8}.cl{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:8.5px;font-weight:600;fill:rgba(91,142,255,0.75)}</style></defs>
+  <polygon class="us-state" points="68,200 72,180 76,160 78,140 80,120 82,100 84,82 88,66 94,54 100,44 108,36 118,30 130,26 142,24 152,24 162,26 168,32 172,40 174,50 174,62 172,74 168,88 162,104 154,120 144,136 132,150 120,164 108,178 96,190 84,200 76,204 70,204"/>
+  <polygon class="us-state" points="82,100 84,82 88,66 94,54 100,44 108,36 118,30 130,26 142,24 152,24 162,26 168,32 172,40 174,50 174,62 172,74 168,88 162,104 154,120 144,136 130,130 116,124 102,116 90,108"/>
+  <polygon class="us-state" points="174,62 200,58 228,56 256,56 284,58 312,62 336,66 338,96 338,128 336,160 332,192 326,224 318,254 308,280 296,302 262,302 228,300 194,296 192,266 194,236 196,206 196,176 192,146 186,118 180,90 174,62"/>
+  <polygon class="us-state" points="200,58 232,54 264,52 296,52 328,54 356,58 382,62 382,90 380,120 376,150 370,180 362,208 352,234 340,256 318,254 326,224 332,192 336,160 338,128 338,96 336,66 312,62 284,58 256,56 228,56 200,58"/>
+  <polygon class="us-state" points="382,62 412,60 442,58 472,56 500,56 528,58 528,86 526,114 522,142 516,170 508,196 498,220 486,242 472,258 456,268 440,272 422,270 404,264 388,254 374,240 362,208 370,180 376,150 380,120 382,90"/>
+  <polygon class="us-state" points="528,58 558,56 588,56 616,58 640,62 638,88 634,114 628,140 620,166 610,190 598,212 584,230 568,244 550,252 530,256 510,254 492,248 486,242 498,220 508,196 516,170 522,142 526,114 528,86"/>
+  <polygon class="us-state" points="640,62 668,60 696,60 722,62 748,66 746,92 742,118 736,144 728,168 718,190 706,208 692,220 676,226 660,228 642,224 624,216 608,204 596,188 586,170 578,150 572,130 568,110 572,90 578,74 588,64 610,60 640,62"/>
+  <polygon class="us-state" points="748,66 776,64 804,64 830,66 854,70 876,76 892,82 900,90 902,104 898,118 890,130 878,138 862,142 844,142 826,138 808,130 792,118 778,104 766,90 756,76"/>
+  <polygon class="us-state" points="692,220 706,208 718,190 728,168 736,144 742,118 746,92 748,66 756,76 766,90 778,104 792,118 808,130 826,138 826,152 820,166 810,178 796,186 778,190 760,192 740,190 720,186 702,180 686,172 676,162 668,150 664,136 664,120 668,102 676,88 686,76 698,68 710,64 722,62"/>
+  <polygon class="us-state" points="686,172 702,180 720,186 740,190 760,192 778,190 796,186 810,178 820,166 826,152 826,138 844,142 862,142 878,138 876,154 872,170 862,186 846,200 826,212 804,220 782,226 758,228 732,226 706,222 686,214 670,204 658,192 650,178 648,162 650,148 656,136 664,136 668,150 676,162"/>
+  <polygon class="us-state" points="706,222 732,226 758,228 782,226 804,220 820,230 832,244 838,258 836,272 828,286 814,298 796,308 774,314 750,316 726,314 702,308 682,298 668,284 660,268 658,252 660,236 668,226 682,220 694,220"/>
+  <polygon class="us-state" points="346,244 364,242 390,240 420,240 450,242 478,246 504,252 522,262 530,278 532,296 526,314 514,330 496,342 474,350 450,354 424,352 398,346 374,334 354,318 340,298 332,276 332,256"/>
+  <polygon class="us-state" points="530,256 550,252 568,244 584,230 598,212 610,204 624,216 634,228 640,242 638,258 630,272 616,282 598,288 578,290 558,286 540,278 526,266 522,254"/>
+  <polygon class="us-state" points="40,460 60,448 82,438 106,430 130,424 154,420 178,418 200,418 220,422 238,428 252,436 262,446 268,458 268,470 260,480 244,488 224,494 200,498 174,500 148,498 124,492 102,484 82,474 64,462"/>
+  <ellipse class="us-state" cx="300" cy="510" rx="22" ry="11"/>
+  <ellipse class="us-state" cx="336" cy="506" rx="18" ry="9"/>
+  <ellipse class="us-state" cx="368" cy="504" rx="14" ry="7.5"/>
+  <ellipse class="us-state" cx="396" cy="506" rx="10" ry="6"/>
+  <ellipse class="us-state" cx="418" cy="510" rx="7" ry="5"/>
+  <!-- City dots -->
+  <circle cx="148" cy="218" r="5.5" fill="#1455E8" opacity=".9"/>
+  <circle cx="148" cy="218" r="14" fill="none" stroke="#1455E8" stroke-width="1" opacity=".2"><animate attributeName="r" values="6;22;6" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3s" repeatCount="indefinite"/></circle>
+  <text x="157" y="221" class="cl">Los Angeles</text>
+  <circle cx="110" cy="168" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="119" y="171" class="cl">San Francisco</text>
+  <circle cx="128" cy="80" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="137" y="83" class="cl">Seattle</text>
+  <circle cx="118" cy="108" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="127" y="111" class="cl">Portland</text>
+  <circle cx="178" cy="210" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="165" y="205" class="cl">Las Vegas</text>
+  <circle cx="222" cy="268" r="5" fill="#5B8EFF" opacity=".85"/>
+  <text x="231" y="271" class="cl">Phoenix</text>
+  <circle cx="264" cy="170" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="273" y="173" class="cl">Salt Lake</text>
+  <circle cx="356" cy="194" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="365" y="197" class="cl">Denver</text>
+  <circle cx="468" cy="302" r="5" fill="#5B8EFF" opacity=".85"/>
+  <text x="477" y="305" class="cl">Dallas</text>
+  <circle cx="480" cy="330" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="489" y="333" class="cl">Houston</text>
+  <circle cx="560" cy="110" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="569" y="113" class="cl">Minneapolis</text>
+  <circle cx="634" cy="162" r="5.5" fill="#1455E8" opacity=".9"/>
+  <circle cx="634" cy="162" r="14" fill="none" stroke="#1455E8" stroke-width="1" opacity=".2"><animate attributeName="r" values="6;20;6" dur="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".4;0;.4" dur="3.5s" repeatCount="indefinite"/></circle>
+  <text x="643" y="165" class="cl">Chicago</text>
+  <circle cx="690" cy="142" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="699" y="140" class="cl">Detroit</text>
+  <circle cx="548" cy="214" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="557" y="217" class="cl">Kansas City</text>
+  <circle cx="664" cy="226" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="673" y="229" class="cl">Nashville</text>
+  <circle cx="694" cy="272" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="703" y="275" class="cl">Atlanta</text>
+  <circle cx="828" cy="168" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="837" y="171" class="cl">DC</text>
+  <circle cx="858" cy="136" r="6" fill="#1455E8" opacity=".9"/>
+  <circle cx="858" cy="136" r="16" fill="none" stroke="#1455E8" stroke-width="1" opacity=".2"><animate attributeName="r" values="7;24;7" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0;.45" dur="4s" repeatCount="indefinite"/></circle>
+  <text x="867" y="139" class="cl">New York</text>
+  <circle cx="882" cy="112" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="887" y="105" class="cl">Boston</text>
+  <circle cx="766" cy="300" r="4.5" fill="#5B8EFF" opacity=".85"/>
+  <text x="771" y="293" class="cl">Miami</text>
+  <circle cx="584" cy="314" r="3.5" fill="#8CB4FF" opacity=".7"/>
+  <text x="593" y="317" class="cl">New Orleans</text>
+  <circle cx="650" cy="188" r="3" fill="#8CB4FF" opacity=".6"/>
+  <circle cx="596" cy="204" r="3" fill="#8CB4FF" opacity=".6"/>
+  <circle cx="758" cy="214" r="3" fill="#8CB4FF" opacity=".6"/>
+  <circle cx="844" cy="152" r="3" fill="#8CB4FF" opacity=".6"/>
+  <text x="480" y="582" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui,sans-serif" font-size="9" font-weight="700" fill="rgba(91,142,255,0.4)" letter-spacing="3">ALL 50 STATES COVERED</text>
         </svg>
       </div>
     </div>
