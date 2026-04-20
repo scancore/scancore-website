@@ -557,34 +557,144 @@ footer{background:var(--ink);padding:72px 80px 100px}
    RESPONSIVE
 ══════════════════════ */
 @media(max-width:900px){
-  .nav{padding:0 24px}
+  *{box-sizing:border-box}
+  body{overflow-x:hidden}
+  img{max-width:100%;height:auto}
+
+  /* NAV */
+  .nav{padding:0 20px;height:66px}
   .nav-links{display:none}
   .ham{display:flex}
   .nav-icons{display:none}
-  .hero-left{padding:0 28px}
+  .nav-brand img{height:28px !important}
+
+  /* LIVE PRICE BAR */
+
+
+  /* HERO */
+  .hero{min-height:auto;padding:52px 0 72px}
+  .hero-left{padding:0 20px;max-width:100%}
   .hero-right{display:none}
   .hero-dots,.hero-scroll{display:none}
-  .problem,.services,.how,.coverage,.testi,.about-t{padding:64px 24px}
-  .problem-inner,.how-inner,.coverage-inner,.about-t-inner,.as-inner,.st-inner{grid-template-columns:1fr;gap:48px}
-  .phone-wrap{display:none}
-  .svc-grid,.testi-grid,.vals-grid,.svc-pg-grid,.deliv-grid,.cinfo-cards{grid-template-columns:1fr;gap:2px}
+  .hero-h1{font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:-1px}
+  .hero-badge{font-size:.6rem;padding:5px 12px}
+  .hero-chips{gap:5px}
+  .hchip{font-size:.65rem;padding:5px 10px}
+  .hero-actions{flex-direction:column;gap:10px}
+  .hero-actions .btn-blue,.hero-actions .btn-outline{
+    width:100%;justify-content:center;text-align:center}
+
+  /* STATS */
   .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:24px 16px}
+  .stat-n{font-size:2rem}
+
+  /* SECTIONS */
+  .problem,.how,.testi,.about-t{padding:52px 20px}
+  .services{padding:52px 0}
+  .services-inner{padding:0 20px}
+  .coverage{padding:52px 20px}
+  .problem-inner,.how-inner,.coverage-inner,.about-t-inner,.as-inner,.st-inner{
+    grid-template-columns:1fr;gap:36px}
+  .phone-wrap{display:none}
+  .how-visual{display:none}
+  .at-img-wrap{display:none}
+  .map-box{aspect-ratio:1.4;padding:16px}
+
+  /* GRIDS */
+  .svc-grid{grid-template-columns:1fr;gap:1px}
+  .svc-card{padding:26px 20px}
+  .testi-grid{grid-template-columns:1fr;gap:10px}
+  .testi{padding:52px 20px}
+
+  /* CONTACT STRIP */
   .cstrip{flex-direction:column}
-  .cs{border-right:none;border-bottom:1px solid var(--rule)}
-  footer{padding:48px 24px 100px}
-  .footer-inner{grid-template-columns:1fr;gap:28px}
-  .phc{padding:0 24px 52px}
-  .svc-pg-sec,.delivs-sec,.scan-tech,.cta-band,.cinfo,.cform-sec{padding:56px 24px}
+  .cs{border-right:none;border-bottom:1px solid var(--rule);padding:18px 20px}
+
+  /* FOOTER */
+  footer{padding:40px 20px 100px}
+  .footer-inner{grid-template-columns:1fr;gap:20px}
+  .f-bottom{flex-direction:column;text-align:center;gap:5px}
+
+  /* INNER PAGES */
+  .phc{padding:0 20px 44px}
+  .phc h1{font-size:clamp(1.9rem,7vw,3rem);letter-spacing:-1px}
+  .svc-pg-sec,.delivs-sec,.scan-tech,.cta-band,.cinfo,.cform-sec{padding:44px 20px}
+  .svc-pg-grid{grid-template-columns:1fr;gap:1px}
+  .deliv-grid{grid-template-columns:repeat(2,1fr);gap:1px}
+  .vals-grid{grid-template-columns:1fr;gap:1px}
+  .cinfo-cards{grid-template-columns:repeat(2,1fr);gap:1px}
   .about-split{grid-template-columns:1fr;min-height:auto}
-  .about-col-img{min-height:65vh}
-  .about-col-stat{min-height:auto;padding:40px 24px}
-  .about-txt{left:24px;bottom:32px}
-  .about-story,.vals-sec{padding:64px 24px}
-  .qhero,.qwrap{padding:48px 20px}
-  .qbody{grid-template-columns:1fr}
-  .qsvc-grid,.qprop-grid{grid-template-columns:1fr}
-  .qsbar{position:static}
+  .about-col-img{min-height:55vh}
+  .about-col-stat{min-height:auto;padding:36px 20px}
+  .about-col-stat .about-big{font-size:3.5rem}
+  .about-txt{left:20px;bottom:24px}
+  .about-txt h1{font-size:clamp(1.9rem,7vw,2.8rem);letter-spacing:-1px}
+  .about-story,.vals-sec{padding:52px 20px}
   .cf-row{grid-template-columns:1fr}
+
+  /* QUOTE */
+  .qhero{padding:36px 20px 28px}
+  .qhero h1{font-size:clamp(1.7rem,6vw,2.4rem);letter-spacing:-1px}
+  .qwrap{padding:20px 16px 44px}
+  .sqft-bar{grid-template-columns:1fr;border-radius:8px;overflow:hidden}
+  .sqft-box{padding:14px 18px}
+  .sqft-box-input{flex-direction:row;align-items:center}
+  #sqFootage{font-size:1.8rem;padding:6px 0}
+  .sqft-unit{border-left:none;padding-left:8px;font-size:.75rem}
+  .sqft-box-hint{display:none}
+  .qbody{grid-template-columns:1fr;gap:14px}
+  .qsvc-grid{grid-template-columns:1fr}
+  .qprop-grid{grid-template-columns:1fr}
+  .qsbar{position:static}
+  .qbadges{gap:5px;justify-content:center}
+  .qb{font-size:.65rem;padding:4px 10px}
+}
+@media(max-width:480px){
+  .hero-h1{font-size:clamp(2rem,10vw,2.8rem)}
+  .deliv-grid{grid-template-columns:1fr;gap:1px}
+  .cinfo-cards{grid-template-columns:1fr;gap:1px}
+
+}
+@media(max-width:480px){
+  .hero-h1{font-size:clamp(2.2rem,11vw,3rem)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .deliv-grid{grid-template-columns:1fr;gap:1px}
+  .cinfo-cards{grid-template-columns:1fr;gap:1px}
+  .qbadges{flex-direction:column;align-items:center}
+}
+
+/* ── LIVE PRICE BAR — mobile only, hidden on desktop ── */
+.live-price-bar{display:none}
+@media(max-width:900px){
+  .live-price-bar{
+    display:flex;position:sticky;top:66px;z-index:498;
+    background:var(--ink);border-bottom:2px solid var(--blue);
+    align-items:center;gap:10px;padding:9px 16px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+  }
+  .lpb-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap;flex-shrink:0}
+  .lpb-sqft-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
+  .lpb-sqft-wrap label{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.45);white-space:nowrap}
+  #lpb-sqft{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;padding:4px 8px;width:88px;outline:none;-moz-appearance:textfield}
+  #lpb-sqft::-webkit-outer-spin-button,#lpb-sqft::-webkit-inner-spin-button{-webkit-appearance:none}
+  #lpb-sqft::placeholder{color:rgba(255,255,255,.25);font-weight:400}
+  .lpb-sep{width:1px;height:16px;background:rgba(255,255,255,.1);flex-shrink:0}
+  .lpb-services{display:flex;align-items:center;gap:6px;flex-shrink:0}
+  .lpb-svc{display:flex;align-items:center;gap:4px;font-size:.65rem;font-weight:500;color:rgba(255,255,255,.45);white-space:nowrap;cursor:pointer;padding:4px 9px;border-radius:3px;border:1px solid rgba(255,255,255,.1);transition:all .15s;flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
+  .lpb-svc.on{background:rgba(20,85,232,.3);border-color:var(--blue3);color:#fff;font-weight:700}
+  .lpb-dot{width:4px;height:4px;border-radius:50%;background:var(--blue3);opacity:0;flex-shrink:0}
+  .lpb-svc.on .lpb-dot{opacity:1}
+  .lpb-result{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+  .lpb-total-lbl{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap}
+  .lpb-total-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;white-space:nowrap;min-width:60px;text-align:right}
+  .lpb-cta{background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+}
+@media(max-width:480px){
+  .lpb-label{display:none}
+  .lpb-sqft-wrap label{display:none}
+  #lpb-sqft{width:76px}
+  .lpb-total-lbl{display:none}
 }
 </style>
 
@@ -666,6 +776,28 @@ footer{background:var(--ink);padding:72px 80px 100px}
     <a href="tel:+18338652726" class="ni"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
   </div>
 </nav>
+
+<!-- ════ LIVE PRICE BAR ════ -->
+<div class="live-price-bar" id="livePriceBar">
+  <span class="lpb-label">Live Price</span>
+  <div class="lpb-sqft-wrap">
+    <label for="lpb-sqft">Sq Ft</label>
+    <input type="number" id="lpb-sqft" placeholder="2,000" min="100" max="50000"/>
+  </div>
+  <div class="lpb-sep"></div>
+  <div class="lpb-services">
+    <div class="lpb-svc" data-id="autocad"    onclick="lpbToggle('autocad')"><span class="lpb-dot"></span>AutoCAD</div>
+    <div class="lpb-svc" data-id="sketchup"   onclick="lpbToggle('sketchup')"><span class="lpb-dot"></span>SketchUp</div>
+    <div class="lpb-svc" data-id="matterport" onclick="lpbToggle('matterport')"><span class="lpb-dot"></span>Matterport</div>
+    <div class="lpb-svc" data-id="rcp"        onclick="lpbToggle('rcp')"><span class="lpb-dot"></span>RCP</div>
+    <div class="lpb-svc" data-id="design_pkg" onclick="lpbToggle('design_pkg')"><span class="lpb-dot"></span>Bundle</div>
+  </div>
+  <div class="lpb-result">
+    <span class="lpb-total-lbl">Est. Total</span>
+    <span class="lpb-total-val" id="lpbTotal">—</span>
+    <button class="lpb-cta" onclick="go('quote')">Get Quote →</button>
+  </div>
+</div>
 
 <!-- ════════ HOME ════════ -->
 <div id="p-home" class="page on">
@@ -751,7 +883,7 @@ footer{background:var(--ink);padding:72px 80px 100px}
         <div class="svc-card"><div class="svc-n">03</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v18h18V3zm-9 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/></svg></div><h3>Reflected Ceiling Plans</h3><p>Precise RCPs with beam positions, fixture locations, ceiling heights, and structural conditions. LiDAR-captured — no ladders, no guesswork, no revisits.</p><div class="svc-fmt">DWG · Layered</div></div>
         <div class="svc-card"><div class="svc-n">04</div><div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg></div><h3>Matterport Virtual Tours</h3><p>Immersive 3D tours — dollhouse views, 360° walkthroughs, built-in measurement tools. Reduces miscommunication and minimizes revisits. 6-month hosting included.</p><div class="svc-fmt">3D Tour · 6-Month Hosting</div></div>
         <div class="svc-card"><div class="svc-n">05</div><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3>Design Package Bundle</h3><p>AutoCAD Floor Plan + SketchUp 3D Model + Matterport Tour — all three services in one package at a better combined rate. The most complete documentation package, built for designers who want everything.</p><div class="svc-fmt">AutoCAD · SketchUp · Matterport</div></div>
-        <div class="svc-card"><div class="svc-n">06</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v18h18V3zm-9 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/></svg></div><h3>Reflected Ceiling Plan</h3><p>Detailed RCP showing every fixture location, beam, soffit, HVAC register, and ceiling height — captured by LiDAR with no ladders, no guesswork, and no return visits needed.</p><div class="svc-fmt">DWG · Layered · LiDAR-Captured</div></div>
+        <div class="svc-card"><div class="svc-n">06</div><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><path d="M3 9c0 0 3-2 9-2s9 2 9 2"/><circle cx="19" cy="7" r="3"/><line x1="19" y1="4" x2="19" y2="7"/><line x1="16.5" y1="5.5" x2="19" y2="7"/></svg></div><h3>Indoor &amp; Outdoor Scans</h3><p>LiDAR scanning isn't limited to interiors. We capture building exteriors, courtyards, pool areas, and surrounding structures — giving you the complete picture for any renovation or new design project.</p><div class="svc-fmt">Interior · Exterior · Full Property</div></div>
       </div>
     </div>
   </section>
@@ -1451,6 +1583,57 @@ function submitQuote() {
 
 // qsvc-disabled class needs CSS
 document.head.insertAdjacentHTML('beforeend','<style>.qsvc-disabled{opacity:.35!important;cursor:not-allowed!important;pointer-events:none!important}.qerr.show{display:block!important}.bundle-toast.show{display:flex!important}.qfield input.error,.qfield textarea.error,.qfield select.error{border-color:var(--red)!important}</style>');
+
+
+// ════ LIVE PRICE BAR ════
+const LPB = {
+  autocad:    sq => sq<=1000 ? 420 : Math.round(sq*0.42),
+  sketchup:   sq => sq<=1000 ? 420 : Math.round(sq*0.42),
+  matterport: sq => sq<=2000 ? 200 : 200+Math.ceil((sq-2000)/1000)*50,
+  rcp:        sq => sq<=1000 ? 200 : Math.round(sq*0.20),
+  design_pkg: sq => sq<=1000 ? 700 : Math.round(sq*0.70),
+};
+const lpbSel = new Set();
+function lpbToggle(id) {
+  if(id==='design_pkg'){
+    if(lpbSel.has('design_pkg')){ lpbSel.delete('design_pkg'); }
+    else{ ['autocad','sketchup','matterport'].forEach(x=>lpbSel.delete(x)); lpbSel.add('design_pkg'); }
+  } else if(['autocad','sketchup','matterport'].includes(id)){
+    lpbSel.delete('design_pkg');
+    lpbSel.has(id) ? lpbSel.delete(id) : lpbSel.add(id);
+  } else {
+    lpbSel.has(id) ? lpbSel.delete(id) : lpbSel.add(id);
+  }
+  lpbRecalc();
+}
+function lpbRecalc(){
+  const sq = parseInt(document.getElementById('lpb-sqft')?.value||'0')||0;
+  // Update button states
+  document.querySelectorAll('.lpb-svc').forEach(el=>{
+    el.classList.toggle('on', lpbSel.has(el.dataset.id));
+  });
+  // Calculate total
+  const totalEl = document.getElementById('lpbTotal');
+  if(!totalEl) return;
+  if(!sq || lpbSel.size===0){ totalEl.textContent='—'; return; }
+  let total = 0;
+  lpbSel.forEach(id=>{ if(LPB[id]) total += LPB[id](sq); });
+  totalEl.textContent = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(total);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const lpbInput = document.getElementById('lpb-sqft');
+  if(lpbInput){
+    lpbInput.addEventListener('input', lpbRecalc);
+    // Keep in sync with quote page sqft if on quote page
+    lpbInput.addEventListener('input', ()=>{
+      const qEl = document.getElementById('sqFootage');
+      if(qEl && document.getElementById('p-quote')?.classList.contains('on')){
+        qEl.value = lpbInput.value;
+        if(typeof recalc==='function') recalc();
+      }
+    });
+  }
+});
 
 document.addEventListener('DOMContentLoaded',()=>{injectFooters();qInit();});
 </script>
