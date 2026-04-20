@@ -1,5 +1,5 @@
 {
-    "name": "scancore-website",
-    "main": "scancore-worker.js",
-    "compatibility_date": "2026-04-07"
+  "name": "scancore-website",
+  "main": "scancore-worker.js",
+  "compatibility_date": "2026-04-07"
 }
