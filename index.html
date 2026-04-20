@@ -1599,7 +1599,7 @@ function updateDelivery(sqft) {
     <tr><td style="padding:6px 0;color:var(--mid)">Time on site</td><td style="text-align:right;padding:6px 0;color:var(--mid)">${onsite}</td></tr>`;
 }
 
-async function submitQuote() {
+function submitQuote() {
   let ok=true;
   const sqft=parseInt(document.getElementById('sqFootage')?.value||'0',10);
   const addr=(document.getElementById('propAddress')?.value||'').trim();
@@ -1632,30 +1632,15 @@ async function submitQuote() {
 
   if(!ok)return;
 
-  const btn=document.getElementById('submitBtn');
-  if(btn){btn.disabled=true;btn.textContent='Submitting...';}
-  let ca=0;
-  qState.selected.forEach(id=>{if(id==='expedited')return;const svc=SERVICES.find(s=>s.id===id);if(svc&&qState.sqft)ca+=svc.calc(qState.sqft);});
-  if(qState.selected.has('expedited'))ca=Math.round(ca*1.25);
-  const sl={matterport:'Matterport',autocad:'2D CAD',sketchup:'SketchUp',design_pkg:'Design Package',rcp:'RCP',expedited:'Expedited'};
-  const svcs=[...qState.selected].map(id=>sl[id]||id);
-  const pl={address:addr,sqFootage:sqft,contractAmount:ca,services:svcs,contactName:name,contactEmail:email,contactPhone:(document.getElementById('contactPhone')?.value||'').trim(),contactCompany:(document.getElementById('contactCompany')?.value||'').trim(),propType:document.getElementById('propType')?.value||'residential',notes:(document.getElementById('propNotes')?.value||'').trim(),expedited:qState.selected.has('expedited'),hvac:false};
-  try{
-    const res=await fetch('/api/public-quote',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(pl)});
-    const data=await res.json().catch(()=>({}));
-    if(!res.ok||data.ok===false)throw new Error(data.error||'Submission failed');
-    document.querySelector('.qbody').style.display='none';
-    document.querySelector('.sqft-bar').style.display='none';
-    document.getElementById('sqftMinWarning').style.display='none';
-    document.getElementById('bundleUpgradeToast').style.display='none';
-    document.getElementById('successCard').style.display='block';
-    document.getElementById('quoteRefDisplay').textContent='Quote '+(data.quoteNumber||'Submitted');
-    window.scrollTo(0,0);
-  }catch(err){
-    if(btn){btn.disabled=false;btn.textContent='Submit Quote Request →';}
-    const el=document.getElementById('submitError');
-    if(el){el.textContent=err.message||'Something went wrong.';el.style.display='block';}
-  }
+  // Show success
+  document.querySelector('.qbody').style.display='none';
+  document.querySelector('.sqft-bar').style.display='none';
+  document.getElementById('sqftMinWarning').style.display='none';
+  document.getElementById('bundleUpgradeToast').style.display='none';
+  document.getElementById('successCard').style.display='block';
+  const ref='QT-'+String(Math.floor(Math.random()*900)+100).padStart(3,'0');
+  document.getElementById('quoteRefDisplay').textContent='Quote #'+ref;
+  window.scrollTo(0,0);
 }
 
 // qsvc-disabled class needs CSS
@@ -1782,20 +1767,5 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 </div>
 
-<script>
-(function(){
-  var R={'/':'home','/services':'wwd','/about':'about','/contact':'contact','/quote':'quote'};
-  var B={home:'/',wwd:'/services',about:'/about',contact:'/contact',quote:'/quote'};
-  function p(){
-    if(!window.go)return setTimeout(p,30);
-    var og=window.go;
-    window.go=function(s){og(s);var path=B[s]||'/';if(location.pathname!==path)history.pushState({s:s},'',path);window.scrollTo(0,0);};
-    var s0=R[location.pathname]||'home';
-    if(s0!=='home')window.go(s0);
-  }
-  p();
-  window.addEventListener('popstate',function(e){window.go((e.state&&e.state.s)||R[location.pathname]||'home');});
-})();
-</script>
 </body>
 </html>
