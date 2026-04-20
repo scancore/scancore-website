@@ -38,11 +38,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 
-/* ── PREVIEW BAR ── */
-.preview-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--ink);border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 20px}
-.preview-bar em{color:var(--mist);font-style:normal;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;margin-right:10px}
-.pb{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--mist);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:2px;cursor:pointer;transition:all .18s}
-.pb:hover,.pb.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .page{display:none}.page.on{display:block}
 
 /* ── BUTTONS ── */
@@ -749,6 +744,21 @@ footer{background:var(--ink);padding:72px 80px 100px}
   </div>
 </nav>
 
+<!-- ── MOBILE NAV DRAWER ── -->
+<div class="mob-nav" id="mobNav">
+  <div class="mob-overlay" onclick="closeMobNav()"></div>
+  <div class="mob-drawer">
+    <button class="mob-close" onclick="closeMobNav()">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a class="mob-link" onclick="closeMobNav();go('home')">Home</a>
+    <a class="mob-link" onclick="closeMobNav();go('wwd')">Services</a>
+    <a class="mob-link" onclick="closeMobNav();go('about')">About</a>
+    <a class="mob-link" onclick="closeMobNav();go('contact')">Contact</a>
+    <button class="mob-cta" onclick="closeMobNav();go('quote')">Get a Quote</button>
+  </div>
+</div>
+
 <!-- ════════ HOME ════════ -->
 <div id="p-home" class="page on">
 
@@ -1162,7 +1172,7 @@ footer{background:var(--ink);padding:72px 80px 100px}
         <div class="q-sec" id="inlineBreakdown" style="display:none">
           <div class="q-sec-head">
             <h3>💰 Price Breakdown</h3>
-            <span id="inlineBreakdownNote">Enter sq ft above to see live pricing</span>
+            <span id="inlineBreakdownNote" style="font-size:.75rem;color:var(--mist)">Select a service then enter sq ft to see live pricing</span>
           </div>
           <div id="inlineLineItems"></div>
           <div id="inlineTotalRow" style="display:none;margin-top:14px;padding-top:14px;border-top:2px solid var(--rule)">
@@ -1270,15 +1280,6 @@ footer{background:var(--ink);padding:72px 80px 100px}
   <div id="quote-footer"></div>
 </div>
 
-<!-- ════════ PREVIEW BAR ════════ -->
-<div class="preview-bar">
-  <em>Preview:</em>
-  <button class="pb on" onclick="go('home')">Home</button>
-  <button class="pb" onclick="go('wwd')">Services</button>
-  <button class="pb" onclick="go('about')">About</button>
-  <button class="pb" onclick="go('contact')">Contact</button>
-  <button class="pb" onclick="go('quote')">Quote</button>
-</div>
 
 <script>
 function injectFooters(){
@@ -1562,19 +1563,21 @@ function updateInlineBreakdown() {
   if (!hasSvc) return;
   // Note
   const note = document.getElementById('inlineBreakdownNote');
-  if (note) note.textContent = sq > 0 ? '' : 'Enter sq ft above to see live pricing';
+  if (note) note.textContent = sq > 0 ? '' : 'Showing prices for 1,000 sq ft — update sq ft above';
   // Line items
   const items = document.getElementById('inlineLineItems');
+  const displaySq = sq > 0 ? sq : 1000;
   if (items) {
     let rows = '';
     qState.selected.forEach(id => {
       if (id === 'expedited') return;
       const svc = SERVICES.find(s => s.id === id);
       if (!svc) return;
-      const price = sq > 0 ? fmtCurrency(svc.calc(sq)) : '—';
+      const price = fmtCurrency(svc.calc(displaySq));
+      const suffix = sq > 0 ? ` <span style="font-size:.72rem;color:var(--mist);font-weight:300">for ${sq.toLocaleString()} sq ft</span>` : ` <span style="font-size:.72rem;color:var(--mist);font-weight:300">est. at 1,000 sq ft</span>`;
       rows += `<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule)">
         <span style="font-size:.85rem;color:var(--mid);font-weight:400">${svc.name}</span>
-        <span style="font-size:.85rem;font-weight:700;color:var(--ink)">${price}</span>
+        <span style="font-size:.85rem;font-weight:700;color:var(--ink)">${price}${suffix}</span>
       </div>`;
     });
     if (qState.selected.has('expedited') && sq > 0) {
@@ -1591,24 +1594,38 @@ function updateInlineBreakdown() {
   const totalRow = document.getElementById('inlineTotalRow');
   const totalVal = document.getElementById('inlineTotalVal');
   if (totalRow && totalVal) {
-    if (sq > 0 && qState.selected.size > 0) {
+    if (qState.selected.size > 0) {
       let sub = 0;
       qState.selected.forEach(id => {
         if (id==='expedited') return;
         const s = SERVICES.find(s=>s.id===id);
-        if (s) sub += s.calc(sq);
+        if (s) sub += s.calc(displaySq);
       });
       const total = qState.selected.has('expedited') ? Math.round(sub*1.25) : sub;
       totalRow.style.display = 'flex';
       totalRow.style.justifyContent = 'space-between';
       totalRow.style.alignItems = 'baseline';
-      totalVal.textContent = fmtCurrency(total);
+      totalVal.textContent = fmtCurrency(total) + (sq > 0 ? '' : '*');
     } else {
       totalRow.style.display = 'none';
     }
   }
 }
 
+
+
+// ── MOBILE NAV ──
+function openMobNav(){
+  document.getElementById('mobNav').classList.add('open');
+  document.getElementById('ham').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMobNav(){
+  document.getElementById('mobNav').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('ham').addEventListener('click', openMobNav);
 
 document.addEventListener('DOMContentLoaded',()=>{injectFooters();qInit();});
 </script>
