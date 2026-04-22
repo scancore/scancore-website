@@ -123,6 +123,24 @@ a{text-decoration:none;color:inherit}
 /* ══════════════════════════
    PROBLEM
 ══════════════════════════ */
+/* ── TRANSFORMATION ── */
+.transform-sec{background:var(--ink);padding:100px 80px}
+.transform-inner{max-width:1200px;margin:0 auto}
+.transform-head{text-align:center;margin-bottom:64px}
+.transform-head h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:20px}
+.transform-head h2 em{color:var(--blue3);font-style:italic}
+.transform-head p{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.8;max-width:620px;margin:0 auto;font-weight:300}
+.transform-steps{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr;gap:0;align-items:start}
+.transform-arrow{display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--blue3);padding-top:120px;opacity:.6}
+.transform-step{display:flex;flex-direction:column}
+.transform-num{font-family:'Playfair Display',serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue3);margin-bottom:16px}
+.transform-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:2px;margin-bottom:20px;border:1px solid rgba(255,255,255,.08)}
+.transform-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.transform-img-wrap:hover img{transform:scale(1.03)}
+.transform-img-hero{border:2px solid var(--blue3);box-shadow:0 0 40px rgba(20,85,232,.2)}
+.transform-label{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:10px}
+.transform-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.72;font-weight:300;margin:0}
+.transform-cta{text-align:center;margin-top:60px}
 .problem{background:var(--white);padding:120px 80px}
 .problem-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:100px;align-items:center}
 .problem-text h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:24px}
@@ -589,6 +607,10 @@ footer{background:var(--ink);padding:72px 80px 100px}
   .services{padding:52px 0}
   .services-inner{padding:0 20px}
   .coverage{padding:52px 20px}
+  .transform-sec{padding:64px 20px}
+  .transform-steps{grid-template-columns:1fr;gap:32px}
+  .transform-arrow{display:none}
+  .transform-head{margin-bottom:40px}
   .problem-inner,.how-inner,.coverage-inner,.about-t-inner,.as-inner,.st-inner{
     grid-template-columns:1fr;gap:36px}
   .phone-wrap{display:none}
@@ -769,8 +791,8 @@ footer{background:var(--ink);padding:72px 80px 100px}
   <section class="hero">
     <div class="hero-right">
       <div class="hero-slide-img" style="background-image:url(&#39;https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/scanningipad-1920w.jpg&#39;)"></div>
-      <div class="hero-slide-img on" style="background-image:url(&#39;https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png&#39;)"></div>
-      <div class="hero-slide-img" style="background-image:url(&#39;https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg&#39;)"></div>
+      <div class="hero-slide-img" style="background-image:url(&#39;https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/cover-1920w.png&#39;)"></div>
+      <div class="hero-slide-img on" style="background-image:url(&#39;https://lirp.cdn-website.com/db2038fe/dms3rep/multi/opt/realtor-scan%2B%281%29-1920w.jpg&#39;)"></div>
     </div>
     <div class="hero-left">
       <div class="hero-badge"><div class="hero-badge-dot"></div>LiDAR · All 50 States · Rush Delivery Available</div>
@@ -783,8 +805,8 @@ footer{background:var(--ink);padding:72px 80px 100px}
     </div>
     <div class="hero-dots">
       <button class="hdot" data-i="0"></button>
-      <button class="hdot on" data-i="1"></button>
-      <button class="hdot" data-i="2"></button>
+      <button class="hdot" data-i="1"></button>
+      <button class="hdot on" data-i="2"></button>
     </div>
     <div class="hero-scroll">Scroll</div>
   </section>
@@ -802,6 +824,48 @@ footer{background:var(--ink);padding:72px 80px 100px}
     <div class="stat"><div class="stat-n">5<span>+</span></div><div class="stat-l">Day Standard Delivery</div></div>
     <div class="stat"><div class="stat-n">25<span>+</span></div><div class="stat-l">Years Design Experience</div></div>
   </div>
+
+  <!-- ── TRANSFORMATION SECTION ── -->
+  <section class="transform-sec">
+    <div class="transform-inner">
+      <div class="transform-head">
+        <div class="eyebrow" style="justify-content:center">Real Project · Designed By: <a href="https://www.instagram.com/urbanrevivalphx" target="_blank" style="color:var(--blue3);text-decoration:none;border-bottom:1px solid rgba(90,142,255,.35);text-transform:none">@urbanrevivalphx</a></div>
+        <h2>From scan to built —<br><em>exactly as designed.</em></h2>
+        <p>This is what happens when your documentation is accurate. The designer worked directly from our SketchUp model, rendered the full vision with confidence, and executed it to the inch — no surprises on site, no re-orders, no guesswork.</p>
+      </div>
+      <div class="transform-steps">
+        <div class="transform-step">
+          <div class="transform-num">01</div>
+          <div class="transform-img-wrap">
+            <img src="./index_files/scan-model.jpg" alt="SketchUp 3D model from LiDAR scan" loading="lazy">
+          </div>
+          <div class="transform-label">The 3D Model</div>
+          <p class="transform-desc">LiDAR scan delivered as a precise SketchUp model — every wall, cabinet, ceiling height, and opening exactly as measured.</p>
+        </div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-step">
+          <div class="transform-num">02</div>
+          <div class="transform-img-wrap">
+            <img src="./index_files/design-render.jpg" alt="Designer rendering built from SketchUp model" loading="lazy">
+          </div>
+          <div class="transform-label">The Design Vision</div>
+          <p class="transform-desc">The designer layered materials, finishes, and fixtures directly into the model — presenting clients a photorealistic view before anything was ordered.</p>
+        </div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-step">
+          <div class="transform-num">03</div>
+          <div class="transform-img-wrap transform-img-hero">
+            <img src="./index_files/completed-project.jpg" alt="Completed Kaitz Kitchen" loading="lazy">
+          </div>
+          <div class="transform-label">The Finished Space</div>
+          <p class="transform-desc">The real result. Built exactly as designed — because the model was accurate from day one.</p>
+        </div>
+      </div>
+      <div class="transform-cta">
+        <button class="btn-blue" onclick="go(&#39;quote&#39;)">Get Your Project Started →</button>
+      </div>
+    </div>
+  </section>
 
   <section class="problem">
     <div class="problem-inner">
